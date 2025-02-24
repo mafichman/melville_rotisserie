@@ -23,7 +23,7 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref.R")
 
 - Teams accumulate stats from the beginning of the 2025 season until April 30th.
 
-- Leading in a category is worth a point.
+- Leading in a category is worth a point. Category leaders at season's end earn a point, most points wins!
 
 - Teams consist of 8 position players, 1 Util/DH, 4 pitchers, and 4 bench players (C, IF, OF, P).
 
