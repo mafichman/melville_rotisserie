@@ -1,0 +1,119 @@
+---
+title: "Melville Rotisserie Standings"
+author: "Michael Fichman"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(baseballr)
+library(lubridate)
+library(kableExtra)
+library(purrr)
+library(DT)
+
+# Run source code to pull data from bbref, clean rosters and stats - will run to present day by calling Sys.Date()
+# Rosters are hard coded in this file
+source("~/GitHub/Melville_Rotisserie/R/clean_bbref.R")
+```
+
+# League Rules
+
+- Teams accumulate stats from the beginning of the 2025 season until April 30th.
+
+- Leading in a category is worth a point.
+
+- Teams consist of 8 position players, 1 Util/DH, 4 pitchers, and 4 bench players (C, IF, OF, P).
+
+- No roster moves (trades, waivers, etc.,), except if a player *is placed on IR by their team*, in which case a bench player can be substituted (as OF, IF, or P) and their stats for the whole period used instead.
+
+- Starting pitchers only.
+
+# Current Standings
+
+*Temporary data displaying 2024 batter and 2023-24 pitchers stats for drafted rosters - for testing purposes - includes playoffs*
+
+*Data are pulled from Baseball Reference via baseballR on the date indicated in the page header*
+
+```{r standings, echo = FALSE}
+# Render Standings
+
+left_join(stats_batting, stats_pitching, by = c("Owner" = "Owner")) %>%
+  left_join(points_table, by = c("Owner" = "Owner")) %>%
+  arrange(-Points) %>%
+  mutate(across(where(is.numeric), ~ bold_stat(., cur_column()))) %>%
+  select(Owner, Points, everything()) %>%
+  kable(escape = FALSE) %>%
+  kable_styling()
+
+```
+
+# Sortable Player Statistics
+
+
+
+## Team Isaac
+
+### Batters
+
+```{r echo=FALSE}
+# Roster display - Batters
+datatable(batter_roster %>%
+            filter(Owner == "Isaac") %>%
+            select(positionBatters, Name, statusBatters, Owner, 
+                   Team, G, PA, AB, R, 
+                   H, HR, RBI, BB, SB, BA, 
+                   OBP, SLG, OPS) %>%
+            rename(Position = positionBatters,
+                   Status = statusBatters), 
+          options = list(pageLength = 12))
+
+```
+
+
+### Pitchers
+
+```{r echo=FALSE}
+datatable(pitcher_roster %>%
+            filter(Owner == "Isaac") %>%
+            select(positionPitchers, Name, statusPitchers, Owner, Team,
+                   G, GS, W, L, IP, R, BB, SO, ERA, WHIP) %>%
+            rename(Position = positionPitchers,
+                   Status = statusPitchers), 
+          options = list(pageLength = 10))
+
+```
+
+## Team Dad
+
+### Batters
+
+```{r echo=FALSE}
+# Roster display - Batters
+datatable(batter_roster %>%
+            filter(Owner == "Dad") %>%
+            select(positionBatters, Name, statusBatters, Owner, 
+                   Team, G, PA, AB, R, 
+                   H, HR, RBI, BB, SB, BA, 
+                   OBP, SLG, OPS) %>%
+            rename(Position = positionBatters,
+                   Status = statusBatters), 
+          options = list(pageLength = 12))
+
+```
+
+
+### Pitchers
+
+```{r echo=FALSE}
+datatable(pitcher_roster %>%
+            filter(Owner == "Dad") %>%
+            select(positionPitchers, Name, statusPitchers, Owner, Team,
+                   G, GS, W, L, IP, R, BB, SO, ERA, WHIP) %>%
+            rename(Position = positionPitchers,
+                   Status = statusPitchers), 
+          options = list(pageLength = 10))
+
+```
