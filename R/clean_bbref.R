@@ -40,7 +40,7 @@ battersList_Dad <- c("Adley Rutschman", "Vladimir Guerrero Jr.", "Marcus Semien"
                 "Aaron Judge", "Juan Soto", "Yordan Alvarez", "Pete Alonso",
                 "Will Smith", "Bryce Harper", "Kyle Tucker")
 
-pitchersList_Isaac <- c("Paul Skenes", "Yoshinobu Yamamoto", "Sandy Alcántara", "Aaron Nola", "Corbin Burnes")
+pitchersList_Isaac <- c("Paul Skenes", "Yoshinobu Yamamoto", "Sandy Alcantara", "Aaron Nola", "Corbin Burnes")
 
 pitchersList_Dad <- c("Zack Wheeler", "Tanner Houck", "Tarik Skubal", "Chris Sale", "Gerrit Cole")
 
