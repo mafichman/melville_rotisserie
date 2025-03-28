@@ -11,9 +11,9 @@ library(DT)
 
 # YEAR-MONTH-DAY
 
-allBatters <- bref_daily_batter(t1 = "2024-03-01", t2 = Sys.Date())
+allBatters <- bref_daily_batter(t1 = "2025-03-01", t2 = Sys.Date())
 
-allPitchers <- bref_daily_pitcher(t1 = "2023-03-01", t2 = Sys.Date())
+allPitchers <- bref_daily_pitcher(t1 = "2025-03-01", t2 = Sys.Date())
 
 # Initialize Rosters
 
@@ -33,8 +33,8 @@ statusPitchers <- c("Starter", "Starter", "Starter", "Starter", "Bench")
 # Player names are case and character sensitive - compare them with the lists pulled in `allBatters` and `allPitchers`
 
 battersList_Isaac <- c("J.T. Realmuto", "Freddie Freeman", "Mookie Betts", "Elly De La Cruz", "José Ramírez",
-                  "Ronald Acuña Jr.", "Jarren Duran", "Steven Kwan", "Shohei Ohtani",
-                  "Salvador Perez", "Xander Bogaerts", "Fernando Tatis Jr.")
+                  "Fernando Tatis Jr.", "Jarren Duran", "Steven Kwan", "Shohei Ohtani",
+                  "Salvador Perez", "Xander Bogaerts", "Ronald Acuña Jr.")
 
 battersList_Dad <- c("Adley Rutschman", "Vladimir Guerrero Jr.", "Marcus Semien", "Bobby Witt Jr.", "Alec Bohm",
                 "Aaron Judge", "Juan Soto", "Yordan Alvarez", "Pete Alonso",
@@ -42,7 +42,7 @@ battersList_Dad <- c("Adley Rutschman", "Vladimir Guerrero Jr.", "Marcus Semien"
 
 pitchersList_Isaac <- c("Paul Skenes", "Yoshinobu Yamamoto", "Sandy Alcántara", "Aaron Nola", "Corbin Burnes")
 
-pitchersList_Dad <- c("Zack Wheeler", "Gerrit Cole", "Tarik Skubal", "Chris Sale", "Tanner Houck")
+pitchersList_Dad <- c("Zack Wheeler", "Tanner Houck", "Tarik Skubal", "Chris Sale", "Gerrit Cole")
 
 # Consolidate rosters by owner, position, roster status
 
@@ -75,15 +75,26 @@ batter_roster <- left_join(battersList, allBatters, by = c("Name" = "Name"))
 stats_batting <- batter_roster %>%
   filter(statusBatters == "Starter") %>%
   group_by(Owner) %>%
-  summarize(Hits = sum(H),
-            HR = sum(HR),
-            BA = sum(H)/sum(AB),
-            RBI = sum(RBI),
-            SB = sum(SB),
-            OPS = ((sum(H)+sum(BB)+sum(HBP))/sum(PA))+
-              (sum(X1B)+(2*sum(X2B))+(3*sum(X3B))+(4*sum(HR)))/
-              sum(AB)
-) %>%
+  summarize(H = sum(H, na.rm = TRUE),
+            HR = sum(HR, na.rm = TRUE),
+            BA = sum(H, na.rm = TRUE)/sum(AB, na.rm = TRUE),
+            RBI = sum(RBI, na.rm = TRUE),
+            SB = sum(SB, na.rm = TRUE),
+            OPS = (
+                      (sum(H, na.rm = TRUE) + 
+                      sum(BB, na.rm = TRUE)+ 
+                      sum(HBP, na.rm = TRUE)) / 
+                     sum(PA, na.rm = TRUE)
+                     )+
+              (
+                sum(X1B, na.rm = TRUE) + 
+                 (2*sum(X2B, na.rm = TRUE)) + 
+                 (3*sum(X3B, na.rm = TRUE))+
+                 (4*sum(HR, na.rm = TRUE)
+                  )
+                ) /
+              sum(AB, na.rm = TRUE)
+            ) %>%
   mutate(BA = signif(BA, 3),
          OPS = signif(OPS, 3))
 
@@ -94,10 +105,10 @@ pitcher_roster <- left_join(pitchersList, allPitchers, by = c("Name" = "Name"))
 stats_pitching <- pitcher_roster %>%
   filter(statusPitchers == "Starter") %>%
   group_by(Owner) %>%
-  summarize(IP = sum(IP),
-            SO = sum(SO),
-            ERA = (sum(ER)/sum(IP))*9,
-            WHIP = (sum(BB)+sum(HBP)+sum(H))/sum(IP)
+  summarize(IP = sum(IP, na.rm = TRUE),
+            SO = sum(SO, na.rm = TRUE),
+            ERA = (sum(ER, na.rm = TRUE)/sum(IP, na.rm = TRUE))*9,
+            WHIP = (sum(BB, na.rm = TRUE)+sum(HBP, na.rm = TRUE)+sum(H, na.rm = TRUE))/sum(IP, na.rm = TRUE)
   ) %>%
   mutate(ERA = signif(ERA, 3),
          WHIP = signif(WHIP, 4))

@@ -31,9 +31,17 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref.R")
 
 - Starting pitchers only.
 
-# Current Standings
+# News and Notes
 
-*Temporary data displaying 2024 batter and 2023-24 pitchers stats for drafted rosters - for testing purposes - includes playoffs*
+Happy Opening Day. The season has started!
+
+Injury Report
+
+Gerrit Cole (Deedar) and Ronald Acuna (Ice Man) were placed on Injured Reserve and were replaced in the lineup by bench players Tanner Houck and Fernando Tatis.
+
+Each team can draft a new free agent player to refill their bench, but Cole and Acuna will be removed from their lineups.
+
+# Current Standings
 
 *Data are pulled from Baseball Reference via baseballR on the date indicated in the page header*
 
@@ -54,7 +62,7 @@ left_join(stats_batting, stats_pitching, by = c("Owner" = "Owner")) %>%
 
 
 
-## Team Isaac
+## Team Ice Man
 
 ### Batters
 
@@ -79,14 +87,14 @@ datatable(batter_roster %>%
 datatable(pitcher_roster %>%
             filter(Owner == "Isaac") %>%
             select(positionPitchers, Name, statusPitchers, Owner, Team,
-                   G, GS, W, L, IP, R, BB, SO, ERA, WHIP) %>%
+                   G, GS, W, L, IP, R, ER, BB, SO, ERA, WHIP) %>%
             rename(Position = positionPitchers,
                    Status = statusPitchers), 
           options = list(pageLength = 10))
 
 ```
 
-## Team Dad
+## Team DeeDar
 
 ### Batters
 
@@ -111,7 +119,7 @@ datatable(batter_roster %>%
 datatable(pitcher_roster %>%
             filter(Owner == "Dad") %>%
             select(positionPitchers, Name, statusPitchers, Owner, Team,
-                   G, GS, W, L, IP, R, BB, SO, ERA, WHIP) %>%
+                   G, GS, W, L, IP, R, ER, BB, SO, ERA, WHIP) %>%
             rename(Position = positionPitchers,
                    Status = statusPitchers), 
           options = list(pageLength = 10))
