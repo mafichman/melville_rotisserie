@@ -37,7 +37,7 @@ Happy Opening Day. The season has started!
 
 Injury Report
 
-Gerrit Cole (Deedar) and Ronald Acuna (Ice Man) were placed on Injured Reserve and were replaced in the lineup by bench players Tanner Houck and Fernando Tatis.
+Gerrit Cole (Michael) and Ronald Acuna (Isaac) were placed on Injured Reserve and were replaced in the lineup by bench players Tanner Houck and Fernando Tatis.
 
 Each team can draft a new free agent player to refill their bench, but Cole and Acuna will be removed from their lineups.
 
@@ -62,7 +62,7 @@ left_join(stats_batting, stats_pitching, by = c("Owner" = "Owner")) %>%
 
 
 
-## Team Ice Man
+## Team Isaac
 
 ### Batters
 
@@ -94,14 +94,14 @@ datatable(pitcher_roster %>%
 
 ```
 
-## Team DeeDar
+## Team Michael
 
 ### Batters
 
 ```{r echo=FALSE}
 # Roster display - Batters
 datatable(batter_roster %>%
-            filter(Owner == "Dad") %>%
+            filter(Owner == "Michael") %>%
             select(positionBatters, Name, statusBatters, Owner, 
                    Team, G, PA, AB, R, 
                    H, HR, RBI, BB, SB, BA, 
@@ -117,7 +117,7 @@ datatable(batter_roster %>%
 
 ```{r echo=FALSE}
 datatable(pitcher_roster %>%
-            filter(Owner == "Dad") %>%
+            filter(Owner == "Michael") %>%
             select(positionPitchers, Name, statusPitchers, Owner, Team,
                    G, GS, W, L, IP, R, ER, BB, SO, ERA, WHIP) %>%
             rename(Position = positionPitchers,

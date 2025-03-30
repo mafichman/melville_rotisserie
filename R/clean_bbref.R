@@ -36,13 +36,13 @@ battersList_Isaac <- c("J.T. Realmuto", "Freddie Freeman", "Mookie Betts", "Elly
                   "Fernando Tatis Jr.", "Jarren Duran", "Steven Kwan", "Shohei Ohtani",
                   "Salvador Perez", "Xander Bogaerts", "Ronald Acuña Jr.")
 
-battersList_Dad <- c("Adley Rutschman", "Vladimir Guerrero Jr.", "Marcus Semien", "Bobby Witt Jr.", "Alec Bohm",
+battersList_Michael <- c("Adley Rutschman", "Vladimir Guerrero Jr.", "Marcus Semien", "Bobby Witt Jr.", "Alec Bohm",
                 "Aaron Judge", "Juan Soto", "Yordan Alvarez", "Pete Alonso",
                 "Will Smith", "Bryce Harper", "Kyle Tucker")
 
 pitchersList_Isaac <- c("Paul Skenes", "Yoshinobu Yamamoto", "Sandy Alcantara", "Aaron Nola", "Corbin Burnes")
 
-pitchersList_Dad <- c("Zack Wheeler", "Tanner Houck", "Tarik Skubal", "Chris Sale", "Gerrit Cole")
+pitchersList_Michael <- c("Zack Wheeler", "Tanner Houck", "Tarik Skubal", "Chris Sale", "Gerrit Cole")
 
 # Consolidate rosters by owner, position, roster status
 
@@ -52,10 +52,10 @@ battersList <- cbind(positionBatters, battersList_Isaac, statusBatters) %>%
   as.data.frame() %>%
   rename(Name = battersList_Isaac) %>%
   mutate(Owner = "Isaac") %>%
-  rbind(., cbind(positionBatters, battersList_Dad, statusBatters) %>%
+  rbind(., cbind(positionBatters, battersList_Michael, statusBatters) %>%
           as.data.frame() %>%
-          rename(Name = battersList_Dad) %>%
-          mutate(Owner = "Dad"))
+          rename(Name = battersList_Michael) %>%
+          mutate(Owner = "Michael"))
 
 # Pitchers
 
@@ -63,10 +63,10 @@ pitchersList <- cbind(positionPitchers, pitchersList_Isaac, statusPitchers) %>%
   as.data.frame() %>%
   rename(Name = pitchersList_Isaac) %>%
   mutate(Owner = "Isaac") %>%
-  rbind(., cbind(positionPitchers, pitchersList_Dad, statusPitchers) %>%
+  rbind(., cbind(positionPitchers, pitchersList_Michael, statusPitchers) %>%
           as.data.frame() %>%
-          rename(Name = pitchersList_Dad) %>%
-          mutate(Owner = "Dad"))
+          rename(Name = pitchersList_Michael) %>%
+          mutate(Owner = "Michael"))
 
 # Filter batter list for drafted players
 
@@ -123,11 +123,11 @@ stats_pitching %>%
   pivot_longer(cols = -Owner, names_to = "Stat", values_to = "value") %>%
   pivot_wider(names_from = Owner, values_from = value)
 ) %>%
-  mutate(Leader = case_when(Dad > Isaac & Stat %in% c("ERA", "WHIP") ~ "Isaac",
-                            Dad < Isaac & Stat %in% c("ERA", "WHIP") ~ "Dad",
-                            Dad > Isaac & !Stat %in% c("ERA", "WHIP") ~ "Dad" ,
-                            Dad < Isaac & !Stat %in% c("ERA", "WHIP")~ "Isaac",
-                            Dad == Isaac ~ "Tie")) %>%
+  mutate(Leader = case_when(Michael > Isaac & Stat %in% c("ERA", "WHIP") ~ "Isaac",
+                            Michael < Isaac & Stat %in% c("ERA", "WHIP") ~ "Michael",
+                            Michael > Isaac & !Stat %in% c("ERA", "WHIP") ~ "Michael" ,
+                            Michael < Isaac & !Stat %in% c("ERA", "WHIP")~ "Isaac",
+                            Michael == Isaac ~ "Tie")) %>%
   group_by(Leader) %>%
   tally() %>%
   rename(Points = n,
