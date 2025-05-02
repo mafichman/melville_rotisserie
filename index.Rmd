@@ -33,7 +33,7 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref.R")
 
 # News and Notes
 
-Happy Opening Day. The season has started!
+These are the April League final standings.
 
 Injury Report
 
