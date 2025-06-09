@@ -60,7 +60,8 @@ stats_batting <- batter_roster %>%
               sum(AB, na.rm = TRUE)
             ) %>%
   mutate(BA = signif(BA, 3),
-         OPS = signif(OPS, 3))
+         OPS = signif(OPS, 3)) %>%
+  select(-H)
 
 # Filter pitcher list for drafted players
 
@@ -103,6 +104,12 @@ stats_pitching_points <- stats_pitching %>%
 # all stats
 
 all_stats <- rbind(stats_batting_points, stats_pitching_points)
+
+# Create a points table
+
+points_table <- all_stats %>%
+  group_by(Owner) %>%
+  summarize(Points = sum(points))
 
 
 # Function to bold the appropriate value in row-based standings in kable

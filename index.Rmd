@@ -15,35 +15,59 @@ library(purrr)
 library(DT)
 
 # Run source code to pull data from bbref, clean rosters and stats - will run to present day by calling Sys.Date()
-# Rosters are hard coded in this file
-source("~/GitHub/Melville_Rotisserie/R/clean_bbref.R")
+# Initial date of league start needs to be hard coded
+source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 ```
 
 # League Rules
 
-- Teams accumulate stats from the beginning of the 2025 season until April 30th.
+- Teams accumulate stats from LEAGUE START DATE to LEAGUE END DATE.
 
-- Leading in a category is worth a point. Category leaders at season's end earn a point, most points wins!
+- If you lead in a category, you get as many points as there are teams in the league (e.g. if there are 4 teams, you get 4 points), if you are second - 3 points, third place - 2 points, and so on. Most overall points at season's end wins!
 
-- Teams consist of 8 position players, 1 Util/DH, 4 pitchers, and 4 bench players (C, IF, OF, P).
-
-- No roster moves (trades, waivers, etc.,), except if a player *is placed on IR by their team*, in which case a bench player can be substituted (as OF, IF, or P) and their stats for the whole period used instead.
+- Teams consist of 8 starting position players, 1 Util/DH player, 4 pitchers, and 4 bench players (C, IF, OF, P).
 
 - Starting pitchers only.
 
+- No roster moves (trades, waivers, etc.,), except if a player *is placed on IR by their team*, in which case a bench player can be substituted (as OF, IF, or P) and their stats for the whole period used instead. You aren't allowed to bring that player back - so if Bryce Harper gets hurt, and you replace him at 1B with Pete Alonso from your bench. You can't bring Harper back later in the season.
+
+- All roster moves need to be communicated to Michael, who is the League Commissioner.
+
+# Stats
+
+What do the statistics mean?
+
+## Batting Stats
+
+-BA (Batting Average): Hits / At Bats
+
+-HR: Total team home runs
+
+-RBI: Total team runs batted in
+
+-SB: Total team stolen bases
+
+-OPS (On base plus slugging pct): (Hits + Walks / Plate Appearances) + (Total Bases / At bats)
+
+## Pitching Stats
+
+-IP: Total team innings pitched
+
+-SO: Total team strikeouts
+
+-ERA: Total earned runs per 9 innings
+
+-WHIP: (Walks + Hits) / Innings Pitched
+
 # News and Notes
 
-These are the April League final standings.
-
-Injury Report
-
-Gerrit Cole (Michael) and Ronald Acuna (Isaac) were placed on Injured Reserve and were replaced in the lineup by bench players Tanner Houck and Fernando Tatis.
-
-Each team can draft a new free agent player to refill their bench, but Cole and Acuna will be removed from their lineups.
+No news at this time
 
 # Current Standings
 
 *Data are pulled from Baseball Reference via baseballR on the date indicated in the page header*
+
+Bold-face numbers indicate the leader in each statistical category. 
 
 ```{r standings, echo = FALSE}
 # Render Standings
@@ -60,68 +84,33 @@ left_join(stats_batting, stats_pitching, by = c("Owner" = "Owner")) %>%
 
 # Sortable Player Statistics
 
+Sort through team and player statistics. You can type in your team's name in the search bar to look at only your team OR search for an individual player by name. This table only contains players drafted in the Melville Rotisserie league.
 
+You can click on a statistic to sort the players from highest-to-lowest or lowest-to-highest.
 
-## Team Isaac
+## Batters
 
-### Batters
 
 ```{r echo=FALSE}
 # Roster display - Batters
 datatable(batter_roster %>%
-            filter(Owner == "Isaac") %>%
-            select(positionBatters, Name, statusBatters, Owner, 
+            filter(batter_pitcher == "Batter") %>%
+            select(Name, Position, Status, Owner, 
                    Team, G, PA, AB, R, 
                    H, HR, RBI, BB, SB, BA, 
-                   OBP, SLG, OPS) %>%
-            rename(Position = positionBatters,
-                   Status = statusBatters), 
+                   OBP, SLG, OPS), 
           options = list(pageLength = 12))
 
 ```
 
 
-### Pitchers
+## Pitchers
 
 ```{r echo=FALSE}
 datatable(pitcher_roster %>%
-            filter(Owner == "Isaac") %>%
-            select(positionPitchers, Name, statusPitchers, Owner, Team,
-                   G, GS, W, L, IP, R, ER, BB, SO, ERA, WHIP) %>%
-            rename(Position = positionPitchers,
-                   Status = statusPitchers), 
-          options = list(pageLength = 10))
+            select(Position, Name, Status, Owner, Team,
+                   G, GS, W, L, IP, R, ER, BB, SO, ERA, WHIP), 
+          options = list(pageLength = 5))
 
 ```
 
-## Team Michael
-
-### Batters
-
-```{r echo=FALSE}
-# Roster display - Batters
-datatable(batter_roster %>%
-            filter(Owner == "Michael") %>%
-            select(positionBatters, Name, statusBatters, Owner, 
-                   Team, G, PA, AB, R, 
-                   H, HR, RBI, BB, SB, BA, 
-                   OBP, SLG, OPS) %>%
-            rename(Position = positionBatters,
-                   Status = statusBatters), 
-          options = list(pageLength = 12))
-
-```
-
-
-### Pitchers
-
-```{r echo=FALSE}
-datatable(pitcher_roster %>%
-            filter(Owner == "Michael") %>%
-            select(positionPitchers, Name, statusPitchers, Owner, Team,
-                   G, GS, W, L, IP, R, ER, BB, SO, ERA, WHIP) %>%
-            rename(Position = positionPitchers,
-                   Status = statusPitchers), 
-          options = list(pageLength = 10))
-
-```
