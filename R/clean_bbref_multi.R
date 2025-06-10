@@ -101,9 +101,13 @@ stats_pitching_points <- stats_pitching %>%
   arrange(value) %>%
   mutate(points = row_number()))
 
-# all stats
+# bind all stats, apply stat weighting formula
 
-all_stats <- rbind(stats_batting_points, stats_pitching_points)
+all_stats <- rbind(stats_batting_points, stats_pitching_points) %>%
+  mutate(points = case_when(points == 4 ~ 5,
+                            points == 3 ~ 3,
+                            points == 2 ~ 1,
+                            points == 1 ~ 0))
 
 # Create a points table
 

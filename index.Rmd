@@ -1,8 +1,11 @@
 ---
 title: "Melville Rotisserie Standings"
-author: "Michael Fichman"
+author: "High Honorable League Commissioner Coach Mister Professor Michael"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -21,25 +24,31 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 # League Rules
 
-- Teams accumulate stats from LEAGUE START DATE to LEAGUE END DATE.
+**Current stats on the site are for demonstration only - with stats from beginning of the year, actual league play starts June 10th**
 
-- If you lead in a category, you get as many points as there are teams in the league (e.g. if there are 4 teams, you get 4 points), if you are second - 3 points, third place - 2 points, and so on. Most overall points at season's end wins!
+- Teams accumulate stats from June 10 to August 15.
 
-- Teams consist of 8 starting position players, 1 Util/DH player, 4 pitchers, and 4 bench players (C, IF, OF, P).
+- You get points based on your rank in each statistical category. If you are in first place in, for example, batting average - you get 5 points. If you are in second place - 3 points.Third place - 1 point. Fourth place - you get bupkis.
 
-- Starting pitchers only.
+- Your lineup consists of:
 
-- No roster moves (trades, waivers, etc.,), except if a player *is placed on IR by their team*, in which case a bench player can be substituted (as OF, IF, or P) and their stats for the whole period used instead. You aren't allowed to bring that player back - so if Bryce Harper gets hurt, and you replace him at 1B with Pete Alonso from your bench. You can't bring Harper back later in the season.
+  - 8 starting position players
+  - 1 Util/DH player
+  - 4 pitchers (starting pitchers only)
+  - 4 bench players (C, IF, OF, P).
 
-- All roster moves need to be communicated to Michael, who is the League Commissioner.
+
+- No roster moves (trades etc.,), except if a player *is placed on IR by their team*, in which case a bench player can be substituted (as OF, IF, or P) and their stats for the whole period used instead. You aren't allowed to bring that player back - so if Bryce Harper gets hurt, and you replace him at 1B with reserve IF Pete Alonso from your bench... you can't bring Harper back later in the season - he's "flushed". You can replace Alonso on your bench with a free agent.
+
+- All roster moves need to be communicated to High Honorable League Commissioner Coach Mister Professor Michael. Use email or text.
 
 # Stats
 
-What do the statistics mean?
+How do we calculate the statistics we are using in the league?
 
 ## Batting Stats
 
--BA (Batting Average): Hits / At Bats
+-BA (Batting Average): Total Team Hits / Total Team At Bats
 
 -HR: Total team home runs
 
@@ -47,7 +56,7 @@ What do the statistics mean?
 
 -SB: Total team stolen bases
 
--OPS (On base plus slugging pct): (Hits + Walks / Plate Appearances) + (Total Bases / At bats)
+-OPS (On base pct plus slugging pct): (Hits + Walks / Plate Appearances) + (Total Bases / At bats)
 
 ## Pitching Stats
 
@@ -61,7 +70,7 @@ What do the statistics mean?
 
 # News and Notes
 
-No news at this time
+The season starts June 15th. Expect the first update a few days afterwards.
 
 # Current Standings
 
@@ -96,9 +105,8 @@ You can click on a statistic to sort the players from highest-to-lowest or lowes
 datatable(batter_roster %>%
             filter(batter_pitcher == "Batter") %>%
             select(Name, Position, Status, Owner, 
-                   Team, G, PA, AB, R, 
-                   H, HR, RBI, BB, SB, BA, 
-                   OBP, SLG, OPS), 
+                   Team, G, AB, H, BB, HR, RBI, SB, BA, 
+                  OPS), 
           options = list(pageLength = 12))
 
 ```
@@ -109,7 +117,7 @@ datatable(batter_roster %>%
 ```{r echo=FALSE}
 datatable(pitcher_roster %>%
             select(Position, Name, Status, Owner, Team,
-                   G, GS, W, L, IP, R, ER, BB, SO, ERA, WHIP), 
+                   G, GS, W, L, IP, BB, SO, ERA, WHIP), 
           options = list(pageLength = 5))
 
 ```
