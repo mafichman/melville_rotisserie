@@ -24,7 +24,7 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 # League Rules
 
-**Current stats on the site are for demonstration only - with stats from beginning of the year, actual league play starts June 10th**
+- The league is live!
 
 - Teams accumulate stats from June 10 to August 15.
 
@@ -70,7 +70,7 @@ How do we calculate the statistics we are using in the league?
 
 # News and Notes
 
-The season starts June 15th. Expect the first update a few days afterwards.
+- Isaac dropped Alex Bregman prior to the start of the season - he drafted him without knowing he was on IR. He replaced him at 3B with Alec Bohm.
 
 # Current Standings
 
