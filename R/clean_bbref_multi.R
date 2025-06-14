@@ -104,6 +104,8 @@ stats_pitching_points <- stats_pitching %>%
 # bind all stats, apply stat weighting formula
 
 all_stats <- rbind(stats_batting_points, stats_pitching_points) %>%
+  group_by(Stat) %>%
+  arrange(-points) %>%
   mutate(points = case_when(points == 4 ~ 5,
                             points == 3 ~ 3,
                             points == 2 ~ 1,

@@ -116,7 +116,7 @@ datatable(batter_roster %>%
 ```{r echo=FALSE}
 datatable(pitcher_roster %>%
             select(Name, Position, Owner, Team,
-                   G, W, L, IP, BB, SO, ERA, WHIP), 
+                   G, W, L, IP, H, BB, ER, SO, ERA, WHIP), 
           options = list(pageLength = 5))
 
 ```
