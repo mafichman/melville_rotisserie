@@ -27,7 +27,7 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 - Teams accumulate stats from June 10 to August 15.
 
-- You get points based on your rank in each statistical category. If you are in first place in, for example, batting average - you get 5 points. If you are in second place - 3 points.Third place - 1 point. Fourth place - you get bupkis.
+- You get points based on your rank in each statistical category. If you are in first place in, for example, batting average - you get 5 points. If you are in second place - 3 points. Third place - 1 point. Fourth place - you get bupkis.
 
 - Your lineup consists of:
 
@@ -36,36 +36,9 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
   - 4 pitchers (starting pitchers only)
   - 4 bench players (C, IF, OF, P).
 
-
 - No roster moves (trades etc.,), except if a player *is placed on IR by their team*, in which case a bench player can be substituted (as OF, IF, or P) and their stats for the whole period used instead. You aren't allowed to bring that player back - so if Bryce Harper gets hurt, and you replace him at 1B with reserve IF Pete Alonso from your bench... you can't bring Harper back later in the season - he's "flushed". You can replace Alonso on your bench with a free agent.
 
 - All roster moves need to be communicated to High Honorable League Commissioner Coach Mister Professor Michael. Use email or text.
-
-# Stats
-
-How do we calculate the statistics we are using in the league?
-
-## Batting Stats
-
--BA (Batting Average): Total Team Hits / Total Team At Bats
-
--HR: Total team home runs
-
--RBI: Total team runs batted in
-
--SB: Total team stolen bases
-
--OPS (On base pct plus slugging pct): (Hits + Walks / Plate Appearances) + (Total Bases / At bats)
-
-## Pitching Stats
-
--IP: Total team innings pitched
-
--SO: Total team strikeouts
-
--ERA: Total earned runs per 9 innings
-
--WHIP: (Walks + Hits) / Innings Pitched
 
 # News and Notes
 
@@ -121,3 +94,29 @@ datatable(pitcher_roster %>%
 
 ```
 
+
+# Statistics Guide
+
+How do we calculate the statistics we are using in the league?
+
+## Batting Stats
+
+-BA (Batting Average): Total Team Hits / Total Team At Bats
+
+-HR: Total team home runs
+
+-RBI: Total team runs batted in
+
+-SB: Total team stolen bases
+
+-OPS (On base pct plus slugging pct): (Hits + Walks / Plate Appearances) + (Total Bases / At bats)
+
+## Pitching Stats
+
+-IP: Total team innings pitched
+
+-SO: Total team strikeouts
+
+-ERA (Earned Run Average): Total earned runs per 9 innings
+
+-WHIP: (Walks + Hits) / Innings Pitched

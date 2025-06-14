@@ -103,13 +103,19 @@ stats_pitching_points <- stats_pitching %>%
 
 # bind all stats, apply stat weighting formula
 
+# Added a case_when statement so that if two players are tied in a stat, they both get the higher point value
+# e.g. tied for first place, one arbitrarily gets sorted to 2nd.
+# Statement checks the lag value, if they are the same, player gets lag points
+
 all_stats <- rbind(stats_batting_points, stats_pitching_points) %>%
   group_by(Stat) %>%
   arrange(-points) %>%
   mutate(points = case_when(points == 4 ~ 5,
                             points == 3 ~ 3,
                             points == 2 ~ 1,
-                            points == 1 ~ 0))
+                            points == 1 ~ 0)) %>%
+  mutate(points = case_when(lag(value) == value ~ lag(points),
+                            .default = points))
 
 # Create a points table
 
