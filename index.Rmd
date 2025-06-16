@@ -36,13 +36,29 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
   - 4 pitchers (starting pitchers only)
   - 4 bench players (C, IF, OF, P).
 
-- No roster moves (trades etc.,), except if a player *is placed on IR by their team*, in which case a bench player can be substituted (as OF, IF, or P) and their stats for the whole period used instead. You aren't allowed to bring that player back - so if Bryce Harper gets hurt, and you replace him at 1B with reserve IF Pete Alonso from your bench... you can't bring Harper back later in the season - he's "flushed". You can replace Alonso on your bench with a free agent.
+- There are no trades or adding/dropping players. The only exception is if a player is officially placed on injured reserve (IR) by their team.
+
+- If a player is placed on IR by their team: 
+
+You can then drop that player from your roster, and your bench player can be substituted (as OF, IF, or P). Their stats for the whole period will be used instead. You aren't allowed to bring the injured player back. For example, if Bryce Harper gets hurt, and you replace him at 1B with reserve IF Pete Alonso from your bench... you can't bring Harper back later in the season - he's "flushed". You can replace Alonso on your bench with a free agent.
+
+You do not have to replace the injured player if you don't want! Let's say Player X had a great season, and gets injured a week before the end of the season - if you think it's worth missing a week's worth of production and keeping him on your roster, you certainly can!
+
+- Signing free agents to fill your empty roster spot: 
+
+If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Look up a new player you'd like to sign, and communicate to the Commissioner that you'd like to add that player to your roster.
 
 - All roster moves need to be communicated to High Honorable League Commissioner Coach Mister Professor Michael. Use email or text.
 
 # News and Notes
 
-- Isaac dropped Alex Bregman prior to the start of the season - he drafted him without knowing he was on IR. He replaced him at 3B with Alec Bohm.
+- 6/10: Isaac dropped Alex Bregman (BOS) prior to the start of the season - he drafted him without knowing he was on IR. He replaced him at 3B with Alec Bohm (PHI).
+
+- 6/15: Michael dropped Nathan Eovaldi (TEX), who was placed on Injured Reserve, and replaced him with Robbie Ray (SF) from the Bench. He picked up Kodai Senga (NYM), who is now his bench pitcher.
+
+- 6/15: Rafael Devers was traded from Boston to San Francisco, where he is expected to play 3rd because Matt Chapman is injured. As was discussed at the draft, he had been playing DH only with Boston, and went undrafted.
+
+- 6/15: League rules were updated to explain more about adding/dropping injured players.
 
 # Current Standings
 
