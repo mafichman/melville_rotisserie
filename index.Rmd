@@ -23,8 +23,6 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 # League Rules
 
-- The league is live!
-
 - Teams accumulate stats from June 10 to August 15.
 
 - You get points based on your rank in each statistical category. If you are in first place in, for example, batting average - you get 5 points. If you are in second place - 3 points. Third place - 1 point. Fourth place - you get bupkis.
@@ -34,19 +32,22 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
   - 8 starting position players
   - 1 Util/DH player
   - 4 pitchers (starting pitchers only)
-  - 4 bench players (C, IF, OF, P).
+  - 4 bench players (C, IF, OF, P)
+
 
 - There are no trades or adding/dropping players. The only exception is if a player is officially placed on injured reserve (IR) by their team.
 
 - If a player is placed on IR by their team: 
 
-You can then drop that player from your roster, and your bench player can be substituted (as OF, IF, or P). Their stats for the whole period will be used instead. You aren't allowed to bring the injured player back. For example, if Bryce Harper gets hurt, and you replace him at 1B with reserve IF Pete Alonso from your bench... you can't bring Harper back later in the season - he's "flushed". You can replace Alonso on your bench with a free agent.
+    - You may drop that player from your roster, and your bench player can be substituted (as OF, IF, C, or P). The bench player's stats for the whole period will be used, and the injured player's stats will be lost to your team. You can replace your empty bench spot with an unsigned player from MLB.
 
-You do not have to replace the injured player if you don't want! Let's say Player X had a great season, and gets injured a week before the end of the season - if you think it's worth missing a week's worth of production and keeping him on your roster, you certainly can!
+    - You do not have to replace the injured player if you don't want! Let's say Player X had a great season, and gets injured a week before the end of the season - if you think it's worth missing a week's worth of production and keeping him on your roster, you certainly can!
+
+    - You can also move a player from your Util/DH spot if the position fits. Let's say my SS gets hurt, and my Util/DH player is a regular SS - I can drop my injured SS, move my DH to SS, and then fill my DH slot from the bench.
 
 - Signing free agents to fill your empty roster spot: 
 
-If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Look up a new player you'd like to sign, and communicate to the Commissioner that you'd like to add that player to your roster.
+    - If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Look up a new player you'd like to sign, and communicate to the Commissioner that you'd like to add that player to your roster.
 
 - All roster moves need to be communicated to High Honorable League Commissioner Coach Mister Professor Michael. Use email or text.
 
