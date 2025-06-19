@@ -49,17 +49,17 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
     - If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Look up a new player you'd like to sign, and communicate to the Commissioner that you'd like to add that player to your roster.
 
-- All roster moves need to be communicated to High Honorable League Commissioner Coach Mister Professor Michael. Use email or text.
+- Communicate the roster move to High Honorable League Commissioner Coach Mister Professor Michael through your parents or by telling Isaac.
 
 # News and Notes
 
-- 6/10: Isaac dropped Alex Bregman (BOS) prior to the start of the season - he drafted him without knowing he was on IR. He replaced him at 3B with Alec Bohm (PHI).
+- 6/18: Michaek King (Isaac, SEA) has been placed on Injured Reserve and was swapped with Framber Valdez on Isaac's roster. Isaac can sign a new player and drop King if he chooses.
 
 - 6/15: Michael dropped Nathan Eovaldi (TEX), who was placed on Injured Reserve, and replaced him with Robbie Ray (SF) from the Bench. He picked up Kodai Senga (NYM), who is now his bench pitcher.
 
-- 6/15: Rafael Devers was traded from Boston to San Francisco, where he is expected to play 3rd because Matt Chapman is injured. As was discussed at the draft, he had been playing DH only with Boston, and went undrafted.
+- 6/15: Rafael Devers was traded from Boston to San Francisco, where he might play 3B because Matt Chapman is injured, and may play 1B and DH. As was discussed at the draft, he had been playing DH only with Boston, and went undrafted.
 
-- 6/15: League rules were updated to explain more about adding/dropping injured players.
+- 6/10: Isaac dropped Alex Bregman (BOS) prior to the start of the season - he drafted him without knowing he was on IR. He replaced him at 3B with Alec Bohm (PHI).
 
 # Current Standings
 
