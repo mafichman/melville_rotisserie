@@ -25,7 +25,7 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 - Teams accumulate stats from June 10 to August 15.
 
-- You get points based on your rank in each statistical category. If you are in first place in, for example, batting average - you get 5 points. If you are in second place - 3 points. Third place - 1 point. Fourth place - you get bupkis.
+- You get points based on your rank in each statistical category. If you are in first place in batting average - you get 5 points. If you are in second place - 3 points. Third place - 1 point. Fourth place - you get bupkis.
 
 - Your lineup consists of:
 
@@ -47,13 +47,13 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 - Signing free agents to fill your empty roster spot: 
 
-    - If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Look up a new player you'd like to sign, and communicate to the Commissioner that you'd like to add that player to your roster.
-
-- Communicate the roster move to High Honorable League Commissioner Coach Mister Professor Michael through your parents or by telling Isaac.
+    - If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Look up a new player you'd like to sign, and communicate to the Commissioner that you'd like to add that player to your roster. (Ask your parents to text Michael your roster move, or tell Isaac to tell him!)
 
 # News and Notes
 
-- 6/18: Michaek King (Isaac, SEA) has been placed on Injured Reserve and was swapped with Framber Valdez on Isaac's roster. Isaac can sign a new player and drop King if he chooses.
+- 6/22: Site updates - Player names in the rosters are now linked to their Baseball Reference pages.
+
+- 6/18: Michael King (Isaac, SEA) has been placed on Injured Reserve and was swapped with Framber Valdez on Isaac's roster. Isaac can sign a new player and drop King if he chooses.
 
 - 6/15: Michael dropped Nathan Eovaldi (TEX), who was placed on Injured Reserve, and replaced him with Robbie Ray (SF) from the Bench. He picked up Kodai Senga (NYM), who is now his bench pitcher.
 
@@ -93,10 +93,13 @@ You can click on a statistic to sort the players from highest-to-lowest or lowes
 # Roster display - Batters
 datatable(batter_roster %>%
             filter(batter_pitcher == "Batter") %>%
-            select(Name, Position, Owner, 
+            select(bref_link, Position, Owner, 
                    Team, G, AB, H, BB, HR, RBI, SB, BA, 
-                  OPS), 
-          options = list(pageLength = 12))
+                  OPS) %>%
+            rename(Name = bref_link,
+                   Pos = Position), 
+          options = list(pageLength = 12),
+          escape = FALSE)
 
 ```
 
@@ -105,9 +108,12 @@ datatable(batter_roster %>%
 
 ```{r echo=FALSE}
 datatable(pitcher_roster %>%
-            select(Name, Position, Owner, Team,
-                   G, W, L, IP, H, BB, ER, SO, ERA, WHIP), 
-          options = list(pageLength = 5))
+            select(bref_link, Position, Owner, Team,
+                   G, W, L, IP, H, BB, ER, SO, ERA, WHIP) %>%
+            rename(Name = bref_link,
+                   Pos = Position), 
+          options = list(pageLength = 5),
+          escape = FALSE)
 
 ```
 

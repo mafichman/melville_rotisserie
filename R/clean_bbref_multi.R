@@ -34,7 +34,11 @@ pitchersList <- rosters %>%
 # Filter batter list for drafted players
 
 
-batter_roster <- left_join(battersList, allBatters, by = c("Name" = "Name"))
+batter_roster <- left_join(battersList, allBatters, by = c("Name" = "Name")) %>%
+  mutate(
+    bref_link = paste0('<a href="https://www.baseball-reference.com/players/',
+                       substr(bbref_id, 1, 1), '/', 
+                       bbref_id, '.shtml">', `Name`, '</a>'))
 
 stats_batting <- batter_roster %>%
   filter(Status == "Starter") %>%
@@ -63,9 +67,13 @@ stats_batting <- batter_roster %>%
          OPS = signif(OPS, 3)) %>%
   select(-H)
 
-# Filter pitcher list for drafted players
+# Filter pitcher list for drafted players, create html link for bbref page
 
-pitcher_roster <- left_join(pitchersList, allPitchers, by = c("Name" = "Name"))
+pitcher_roster <- left_join(pitchersList, allPitchers, by = c("Name" = "Name")) %>%
+  mutate(
+    bref_link = paste0('<a href="https://www.baseball-reference.com/players/',
+                       substr(bbref_id, 1, 1), '/', 
+                       bbref_id, '.shtml">', `Name`, '</a>'))
 
 stats_pitching <- pitcher_roster %>%
   filter(Status == "Starter") %>%
