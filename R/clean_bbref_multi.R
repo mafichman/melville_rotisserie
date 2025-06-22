@@ -38,7 +38,7 @@ batter_roster <- left_join(battersList, allBatters, by = c("Name" = "Name")) %>%
   mutate(
     bref_link = paste0('<a href="https://www.baseball-reference.com/players/',
                        substr(bbref_id, 1, 1), '/', 
-                       bbref_id, '.shtml">', `Name`, '</a>'))
+                       bbref_id, '.shtml" target="_blank">', `Name`, '</a>'))
 
 stats_batting <- batter_roster %>%
   filter(Status == "Starter") %>%
@@ -73,7 +73,7 @@ pitcher_roster <- left_join(pitchersList, allPitchers, by = c("Name" = "Name")) 
   mutate(
     bref_link = paste0('<a href="https://www.baseball-reference.com/players/',
                        substr(bbref_id, 1, 1), '/', 
-                       bbref_id, '.shtml">', `Name`, '</a>'))
+                       bbref_id, '.shtml" target="_blank">', `Name`, '</a>'))
 
 stats_pitching <- pitcher_roster %>%
   filter(Status == "Starter") %>%
