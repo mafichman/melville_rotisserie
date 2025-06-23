@@ -32,7 +32,7 @@ pitchersList <- rosters %>%
   filter(batter_pitcher == "Pitcher")
 
 # Filter batter list for drafted players
-
+# Create HMTL link to bbref play for display on site
 
 batter_roster <- left_join(battersList, allBatters, by = c("Name" = "Name")) %>%
   mutate(
