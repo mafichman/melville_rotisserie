@@ -51,6 +51,8 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 # News and Notes
 
+- 7/3: Robin has some injured players. Chris Sale and Corbin Carroll were moved to the bench for Kris Bubic and Lawrence Butler. He can replace those players with free agents if he wants.
+
 - 6/22: Site updates - Player names in the rosters are now linked to their Baseball Reference pages.
 
 - 6/18: Michael King (Isaac, SEA) has been placed on Injured Reserve and was swapped with Framber Valdez on Isaac's roster. Isaac can sign a new player and drop King if he chooses.
