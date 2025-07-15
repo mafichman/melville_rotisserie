@@ -21,34 +21,6 @@ library(DT)
 source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 ```
 
-# League Rules
-
-- Teams accumulate stats from June 10 to August 15.
-
-- You get points based on your rank in each statistical category. If you are in first place in batting average - you get 5 points. If you are in second place - 3 points. Third place - 1 point. Fourth place - you get bupkis.
-
-- Your lineup consists of:
-
-  - 8 starting position players
-  - 1 Util/DH player
-  - 4 pitchers (starting pitchers only)
-  - 4 bench players (C, IF, OF, P)
-
-
-- There are no trades or adding/dropping players. The only exception is if a player is officially placed on injured reserve (IR) by their team.
-
-- If a player is placed on IR by their team: 
-
-    - You may drop that player from your roster, and your bench player can be substituted (as OF, IF, C, or P). The bench player's stats for the whole period will be used, and the injured player's stats will be lost to your team. You can replace your empty bench spot with an unsigned player from MLB.
-
-    - You do not have to replace the injured player if you don't want! Let's say Player X had a great season, and gets injured a week before the end of the season - if you think it's worth missing a week's worth of production and keeping him on your roster, you certainly can!
-
-    - You can also move a player from your Util/DH spot if the position fits. Let's say my SS gets hurt, and my Util/DH player is a regular SS - I can drop my injured SS, move my DH to SS, and then fill my DH slot from the bench.
-
-- Signing free agents to fill your empty roster spot: 
-
-    - If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Look up a new player you'd like to sign, and communicate to the Commissioner that you'd like to add that player to your roster. (Ask your parents to text Michael your roster move, or tell Isaac to tell him!)
-
 # News and Notes
 
 - 7/3: Robin has some injured players. Chris Sale and Corbin Carroll were moved to the bench for Kris Bubic and Lawrence Butler. He can replace those players with free agents if he wants.
@@ -59,13 +31,11 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 - 6/15: Michael dropped Nathan Eovaldi (TEX), who was placed on Injured Reserve, and replaced him with Robbie Ray (SF) from the Bench. He picked up Kodai Senga (NYM), who is now his bench pitcher.
 
-- 6/15: Rafael Devers was traded from Boston to San Francisco, where he might play 3B because Matt Chapman is injured, and may play 1B and DH. As was discussed at the draft, he had been playing DH only with Boston, and went undrafted.
-
 - 6/10: Isaac dropped Alex Bregman (BOS) prior to the start of the season - he drafted him without knowing he was on IR. He replaced him at 3B with Alec Bohm (PHI).
 
 # Current Standings
 
-*Data are pulled from Baseball Reference via baseballR on the date indicated in the page header*
+*Data are pulled from Baseball Reference on the date indicated in the page header*
 
 Bold-face numbers indicate the leader in each statistical category. 
 
@@ -118,6 +88,33 @@ datatable(pitcher_roster %>%
           escape = FALSE)
 
 ```
+# League Rules
+
+- Teams accumulate stats from June 10 to August 15.
+
+- You get points based on your rank in each statistical category. If you are in first place in batting average - you get 5 points. If you are in second place - 3 points. Third place - 1 point. Fourth place - you get bupkis.
+
+- Your lineup consists of:
+
+  - 8 starting position players
+  - 1 Util/DH player
+  - 4 pitchers (starting pitchers only)
+  - 4 bench players (C, IF, OF, P)
+
+
+- There are no trades or adding/dropping players. The only exception is if a player is officially placed on injured reserve (IR) by their team.
+
+- If a player is placed on IR by their team: 
+
+    - You may drop that player from your roster, and your bench player can be substituted (as OF, IF, C, or P). The bench player's stats for the whole period will be used, and the injured player's stats will be lost to your team. You can replace your empty bench spot with an unsigned player from MLB.
+
+    - You do not have to replace the injured player if you don't want! Let's say Player X had a great season, and gets injured a week before the end of the season - if you think it's worth missing a week's worth of production and keeping him on your roster, you certainly can!
+
+    - You can also move a player from your Util/DH spot if the position fits. Let's say my SS gets hurt, and my Util/DH player is a regular SS - I can drop my injured SS, move my DH to SS, and then fill my DH slot from the bench.
+
+- Signing free agents to fill your empty roster spot: 
+
+    - If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Look up a new player you'd like to sign, and communicate to the Commissioner that you'd like to add that player to your roster. (Ask your parents to text Michael your roster move, or tell Isaac to tell him!)
 
 
 # Statistics Guide
