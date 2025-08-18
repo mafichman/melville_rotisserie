@@ -11,9 +11,9 @@ library(DT)
 
 # YEAR-MONTH-DAY
 
-allBatters <- bref_daily_batter(t1 = "2025-06-10", t2 = Sys.Date())
+allBatters <- bref_daily_batter(t1 = "2025-06-10", t2 = "2025-08-15")
 
-allPitchers <- bref_daily_pitcher(t1 = "2025-06-10", t2 = Sys.Date())
+allPitchers <- bref_daily_pitcher(t1 = "2025-06-10", t2 = "2025-08-15")
 
 # Initialize Rosters
 
