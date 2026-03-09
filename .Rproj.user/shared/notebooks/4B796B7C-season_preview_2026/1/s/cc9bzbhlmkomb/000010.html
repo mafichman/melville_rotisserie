@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+<script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="lib/kePrint-0.0.1/kePrint.js"></script>
+<link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+</head>
+<body>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Pos </th>
+   <th style="text-align:left;font-weight: bold;"> Name </th>
+   <th style="text-align:left;font-weight: bold;"> Team </th>
+   <th style="text-align:right;font-weight: bold;"> Age </th>
+   <th style="text-align:right;font-weight: bold;"> RBI </th>
+   <th style="text-align:left;font-weight: bold;"> OPS </th>
+   <th style="text-align:left;font-weight: bold;"> AVG </th>
+   <th style="text-align:right;font-weight: bold;"> HR </th>
+   <th style="text-align:right;font-weight: bold;"> SB </th>
+   <th style="text-align:right;font-weight: bold;"> GP </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Shohei Ohtani </td>
+   <td style="text-align:left;"> Los Angeles Dodgers </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 102 </td>
+   <td style="text-align:left;"> 1.014 </td>
+   <td style="text-align:left;"> .282 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 158 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> George Springer </td>
+   <td style="text-align:left;"> Toronto Blue Jays </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 84 </td>
+   <td style="text-align:left;"> .959 </td>
+   <td style="text-align:left;"> .309 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 140 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Giancarlo Stanton </td>
+   <td style="text-align:left;"> New York Yankees </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:left;"> .944 </td>
+   <td style="text-align:left;"> .273 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 77 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Jahmai Jones </td>
+   <td style="text-align:left;"> Detroit Tigers </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> .937 </td>
+   <td style="text-align:left;"> .287 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 72 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Kyle Schwarber </td>
+   <td style="text-align:left;"> Philadelphia Phillies </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:left;"> .928 </td>
+   <td style="text-align:left;"> .240 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 162 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Rafael Devers </td>
+   <td style="text-align:left;"> San Francisco Giants </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 109 </td>
+   <td style="text-align:left;"> .851 </td>
+   <td style="text-align:left;"> .252 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 163 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Yandy Díaz </td>
+   <td style="text-align:left;"> Tampa Bay Rays </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 83 </td>
+   <td style="text-align:left;"> .848 </td>
+   <td style="text-align:left;"> .300 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 150 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Iván Herrera </td>
+   <td style="text-align:left;"> St. Louis Cardinals </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:left;"> .837 </td>
+   <td style="text-align:left;"> .284 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 107 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Miguel Andujar </td>
+   <td style="text-align:left;"> Cincinnati Reds </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:left;"> .822 </td>
+   <td style="text-align:left;"> .318 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 94 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Jorge Polanco </td>
+   <td style="text-align:left;"> Seattle Mariners </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:left;"> .821 </td>
+   <td style="text-align:left;"> .265 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 138 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Brent Rooker </td>
+   <td style="text-align:left;"> Athletics </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:left;"> .814 </td>
+   <td style="text-align:left;"> .262 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 162 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Seiya Suzuki </td>
+   <td style="text-align:left;"> Chicago Cubs </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:left;"> .804 </td>
+   <td style="text-align:left;"> .245 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 151 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Mike Trout </td>
+   <td style="text-align:left;"> Los Angeles Angels </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:left;"> .798 </td>
+   <td style="text-align:left;"> .232 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 130 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Pavin Smith </td>
+   <td style="text-align:left;"> Arizona Diamondbacks </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:left;"> .796 </td>
+   <td style="text-align:left;"> .258 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 87 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Christian Yelich </td>
+   <td style="text-align:left;"> Milwaukee Brewers </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:left;"> .795 </td>
+   <td style="text-align:left;"> .264 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 150 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Kyle Manzardo </td>
+   <td style="text-align:left;"> Cleveland Guardians </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:left;"> .768 </td>
+   <td style="text-align:left;"> .234 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 142 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Marcell Ozuna </td>
+   <td style="text-align:left;"> Atlanta Braves </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:left;"> .755 </td>
+   <td style="text-align:left;"> .232 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 145 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Colt Keith </td>
+   <td style="text-align:left;"> Detroit Tigers </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:left;"> .746 </td>
+   <td style="text-align:left;"> .256 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 137 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Starling Marte </td>
+   <td style="text-align:left;"> New York Mets </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:left;"> .745 </td>
+   <td style="text-align:left;"> .270 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 98 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Josh Bell </td>
+   <td style="text-align:left;"> Washington Nationals </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:left;"> .742 </td>
+   <td style="text-align:left;"> .237 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 140 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Trevor Larnach </td>
+   <td style="text-align:left;"> Minnesota Twins </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:left;"> .727 </td>
+   <td style="text-align:left;"> .250 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 142 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Gavin Lux </td>
+   <td style="text-align:left;"> Cincinnati Reds </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:left;"> .724 </td>
+   <td style="text-align:left;"> .269 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 140 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Andrew McCutchen </td>
+   <td style="text-align:left;"> Pittsburgh Pirates </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 57 </td>
+   <td style="text-align:left;"> .700 </td>
+   <td style="text-align:left;"> .239 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 135 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Masataka Yoshida </td>
+   <td style="text-align:left;"> Boston Red Sox </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:left;"> .695 </td>
+   <td style="text-align:left;"> .266 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 55 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Wilmer Flores </td>
+   <td style="text-align:left;"> San Francisco Giants </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:left;"> .686 </td>
+   <td style="text-align:left;"> .241 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 125 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Justyn-Henry Malloy </td>
+   <td style="text-align:left;"> Detroit Tigers </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:left;"> .654 </td>
+   <td style="text-align:left;"> .221 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 52 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Yanquiel Fernández </td>
+   <td style="text-align:left;"> Colorado Rockies </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> .613 </td>
+   <td style="text-align:left;"> .225 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 52 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Joc Pederson </td>
+   <td style="text-align:left;"> Texas Rangers </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:left;"> .613 </td>
+   <td style="text-align:left;"> .181 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 96 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> David Fry </td>
+   <td style="text-align:left;"> Cleveland Guardians </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> .592 </td>
+   <td style="text-align:left;"> .171 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 66 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Anthony Santander </td>
+   <td style="text-align:left;"> Toronto Blue Jays </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> .565 </td>
+   <td style="text-align:left;"> .175 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 54 </td>
+  </tr>
+</tbody>
+</table> <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"]]}})</script><script async src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

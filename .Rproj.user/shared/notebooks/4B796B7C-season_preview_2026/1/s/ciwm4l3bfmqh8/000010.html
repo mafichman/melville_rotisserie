@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+<script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="lib/kePrint-0.0.1/kePrint.js"></script>
+<link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+</head>
+<body>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Pos </th>
+   <th style="text-align:left;font-weight: bold;"> Name </th>
+   <th style="text-align:left;font-weight: bold;"> Team </th>
+   <th style="text-align:right;font-weight: bold;"> Age </th>
+   <th style="text-align:right;font-weight: bold;"> RBI </th>
+   <th style="text-align:left;font-weight: bold;"> OPS </th>
+   <th style="text-align:left;font-weight: bold;"> AVG </th>
+   <th style="text-align:right;font-weight: bold;"> HR </th>
+   <th style="text-align:right;font-weight: bold;"> SB </th>
+   <th style="text-align:right;font-weight: bold;"> GP </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> C </td>
+   <td style="text-align:left;"> Cal Raleigh </td>
+   <td style="text-align:left;"> Seattle Mariners </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:left;"> .948 </td>
+   <td style="text-align:left;"> .247 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 159 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Kyle Schwarber </td>
+   <td style="text-align:left;"> Philadelphia Phillies </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:left;"> .928 </td>
+   <td style="text-align:left;"> .240 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 162 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DH </td>
+   <td style="text-align:left;"> Shohei Ohtani </td>
+   <td style="text-align:left;"> Los Angeles Dodgers </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 102 </td>
+   <td style="text-align:left;"> 1.014 </td>
+   <td style="text-align:left;"> .282 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 158 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RF </td>
+   <td style="text-align:left;"> Aaron Judge </td>
+   <td style="text-align:left;"> New York Yankees </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 114 </td>
+   <td style="text-align:left;"> 1.145 </td>
+   <td style="text-align:left;"> .331 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 152 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3B </td>
+   <td style="text-align:left;"> Eugenio Suárez </td>
+   <td style="text-align:left;"> Seattle Mariners </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 118 </td>
+   <td style="text-align:left;"> .824 </td>
+   <td style="text-align:left;"> .228 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 159 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3B </td>
+   <td style="text-align:left;"> Junior Caminero </td>
+   <td style="text-align:left;"> Tampa Bay Rays </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 110 </td>
+   <td style="text-align:left;"> .846 </td>
+   <td style="text-align:left;"> .264 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 154 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RF </td>
+   <td style="text-align:left;"> Juan Soto </td>
+   <td style="text-align:left;"> New York Mets </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 105 </td>
+   <td style="text-align:left;"> .921 </td>
+   <td style="text-align:left;"> .263 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 160 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1B </td>
+   <td style="text-align:left;"> Pete Alonso </td>
+   <td style="text-align:left;"> New York Mets </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 126 </td>
+   <td style="text-align:left;"> .871 </td>
+   <td style="text-align:left;"> .272 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 162 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CF </td>
+   <td style="text-align:left;"> Jo Adell </td>
+   <td style="text-align:left;"> Los Angeles Angels </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 98 </td>
+   <td style="text-align:left;"> .778 </td>
+   <td style="text-align:left;"> .236 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 152 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> LF </td>
+   <td style="text-align:left;"> Riley Greene </td>
+   <td style="text-align:left;"> Detroit Tigers </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:left;"> .806 </td>
+   <td style="text-align:left;"> .258 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 157 </td>
+  </tr>
+</tbody>
+</table> <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"]]}})</script><script async src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
