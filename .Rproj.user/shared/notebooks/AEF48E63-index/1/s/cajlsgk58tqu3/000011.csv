@@ -1,0 +1,7 @@
+"0","datatable(pitcher_roster %>%"
+"0","            select(bref_link, Position, Owner, Team,"
+"0","                   G, W, L, IP, H, BB, ER, SO, ERA, WHIP) %>%"
+"0","            rename(Name = bref_link,"
+"0","                   Pos = Position), "
+"0","          options = list(pageLength = 5),"
+"0","          escape = FALSE)"

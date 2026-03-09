@@ -1,0 +1,93 @@
+---
+title: "Melville Rotisserie 2026 League Preview"
+author:  "High Honorable League Commissioner Coach Michael"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+!(~/GitHub/Melville_Rotisserie/images/league_logo.png)
+
+
+# Welcome to The League
+
+Welcome to the 2026 Melville Rotisserie Baseball League (MRBL). Draft your own fantasy team of major leaguers to see who is West Philly's best General Manager!
+
+Fantasy baseball was created by writer Daniel Okrent and friends in 1980. They would meet at a restaurant in New York called "La Rotisserie Francaise" - so they called their game name "Rotisserie Baseball." Because this whole thing about rotisserie chicken is sillier than "Fantasy Baseball" - we call this, the MRBL! 
+
+This season preview packet describes the league rules, stats, and the draft process. The packet contains a list of 2025 MLB statistics you can study to prepare to draft your best team!
+
+We will draft our team on Sunday, March 22nd from 10am-1pm at Commissioner's Headquarters at 530 S. Melville St. Thanks to Lev's suggestion - we will have rotisserie chicken on hand for lunch.
+
+# League Rules
+
+- Teams accumulate stats from the start of the season until the All-Star Break.
+
+- League standings, players stats and league news will be updated to the league website - mafichman.github.io/melville_rotisserie a couple times per week.
+
+- We will collect stats for nine categories. For batters - Batting Average, Home Runs, Stolen Bases, OPS, and RBIs. For pitchers - Innings Pitched, Strikeouts, ERA and WHIP. Learn more about the stats in the "Statistics Guide" section of the preview packet.
+
+- You get points based on your rank in each statistical category. If you are in first place in batting average - you get 5 points. If you are in second place - 3 points. Third place - 1 point. Fourth and fifth place - you get bupkis.
+
+- Your lineup consists of:
+
+  - 8 starting position players
+  - 1 Util/DH player
+  - 4 pitchers (starting pitchers only)
+  - 4 bench players (one each - C, IF, OF, P)
+
+
+- There are no trades or adding/dropping players. The only exception is if a player is officially placed on injured reserve (IR) by their team.
+
+- If a player is placed on IR by their team: 
+
+    - You may drop that player from your roster, and your bench player can be substituted (as OF, IF, C, or P). The bench player's stats for the whole period will be used, and the injured player's stats will be lost to your team. You can replace your empty bench spot with an unsigned player from MLB.
+
+    - You do not have to replace the injured player if you don't want! Let's say Player X had a great season, and gets injured a week before the end of the season - if you think it's worth missing a week's worth of production and keeping him on your roster, you certainly can!
+
+    - You can also move a player from your Util/DH spot if the position fits. Let's say my SS gets hurt, and my Util/DH player is a regular SS - I can drop my injured SS, move my DH to SS, and then fill my DH slot from the bench.
+
+- Signing free agents to fill your empty roster spot: 
+
+    - If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Use the league website to go to baseballreference.com and look up a new player you'd like to sign, and communicate to High Honorable Commissioner Coach Michael that you'd like to add that player to your roster. (Ask your parents to text the Commissioner your roster move, or tell Isaac to tell him!)
+
+
+## Statistics Guide
+
+How do we calculate the statistics we are using in the league?
+
+### Batting Stats
+
+-BA (Batting Average): Total Team Hits / Total Team At Bats
+
+-HR: Total team home runs
+
+-RBI: Total team runs batted in
+
+-SB: Total team stolen bases
+
+-OPS (On base pct plus slugging pct): (Hits + Walks / Plate Appearances) + (Total Bases / At bats)
+
+### Pitching Stats
+
+-IP: Total team innings pitched
+
+-SO: Total team strikeouts
+
+-ERA (Earned Run Average): Total earned runs per 9 innings
+
+-WHIP: (Walks + Hits) / Innings Pitched
+
+
+## League Rules
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

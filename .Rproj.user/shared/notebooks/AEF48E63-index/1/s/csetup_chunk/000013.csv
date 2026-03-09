@@ -7,5 +7,12 @@
 "0","library(DT)"
 "0",""
 "0","# Run source code to pull data from bbref, clean rosters and stats - will run to present day by calling Sys.Date()"
-"0","# Rosters are hard coded in this file"
-"0","source(""~/GitHub/Melville_Rotisserie/R/clean_bbref.R"")"
+"0","# Initial date of league start needs to be hard coded"
+"0","source(""~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R"")"
+"2","[1mRows: [22m[34m68[39m [1mColumns: [22m[34m5[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (5): Owner, Name, Position, batter_pitcher, Status"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."

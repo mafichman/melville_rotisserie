@@ -1,0 +1,7 @@
+"0","datatable(pitcher_roster %>%"
+"0","            filter(Owner == ""Dad"") %>%"
+"0","            select(positionPitchers, Name, statusPitchers, Owner, Team,"
+"0","                   G, GS, W, L, IP, R, BB, SO, ERA, WHIP) %>%"
+"0","            rename(Position = positionPitchers,"
+"0","                   Status = statusPitchers), "
+"0","          options = list(pageLength = 10))"
