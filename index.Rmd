@@ -27,7 +27,7 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 # News and Notes
 
-- 3/25 - Opening Day! The season has begun!
+- 3/27 - Opening Day was Wednesday, and the first score update of the season was today. If a player doesn't show up on your roster with any stats - they haven't played in a game yet.... I will be buying a web domain to make the site easier to find, check back soon for more info on that.
 
 - 3/22 - League Draft is complete. Robin accidentally drafted pitcher Nick Pivetta into an infielder spot. The commissioner dropped Pivetta from his roster and replaced him with the best available reserve IF Geraldo Perdomo.
 
@@ -96,7 +96,7 @@ datatable(pitcher_roster %>%
 
 - Collect stats for nine categories. For batters - Batting Average, Home Runs, Stolen Bases, OPS, and RBIs. For pitchers - Innings Pitched, Strikeouts, ERA and WHIP. Learn more about the stats in the "Statistics Guide" section of the preview packet.
 
-- You get points based on your rank in each statistical category. If you are in first place in batting average - you get 5 points. If you are in second place - 3 points. Third place - 1 point. Fourth and fifth place - you get bupkis.
+- You get points based on your rank in each statistical category. If you are in first place in batting average - you get 5 points. If you are in second place - 3 points. Third place - 2 point. Fourth place - 1 point. Fifth place - you get bupkis.
 
 - The team with the most points at the end of our season wins!
 
