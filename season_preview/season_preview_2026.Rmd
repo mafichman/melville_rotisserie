@@ -2,47 +2,126 @@
 title: "Melville Rotisserie 2026 League Preview"
 author:  "High Honorable League Commissioner Coach Michael"
 date: "`r Sys.Date()`"
-output: pdf_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(baseballr)
+library(lubridate)
+library(kableExtra)
+library(purrr)
+library(DT)
+library(tinytex)
+options(tinytex.verbose = TRUE)
+
+# Scrape MLB.com for players
+
+pitchers_all <- mlb_stats(stat_type = 'season', player_pool = "all", stat_group = 'pitching', season = 2025)
+pitchers_qualified <- mlb_stats(stat_type = 'season', player_pool = "qualified", stat_group = 'pitching', season = 2025)
+
+hitters_all <- mlb_stats(stat_type = 'season', player_pool = "all", stat_group = 'hitting', season = 2025)
+
+hitters_qualified <- mlb_stats(stat_type = 'season', player_pool = "qualified", stat_group = 'hitting', season = 2025)
+
+pitchers <- pitchers_all %>%
+  filter(position_type == "Pitcher",
+         as.numeric(games_started) > 5) %>%
+  select(position_abbreviation, player_full_name, team_name, age, strike_outs, era, whip, innings_pitched, games_started) %>%
+  arrange(as.numeric(whip)) %>%
+  slice(1:150)  %>%
+  rename(Pos = position_abbreviation,
+         Name = player_full_name,
+         Team = team_name,
+         Age = age,
+         K = strike_outs,
+         ERA = era,
+         WHIP = whip,
+         IP = innings_pitched,
+         Starts = games_started)
+
+hitters <- hitters_all %>%
+  filter(position_type != "Pitcher",
+         position_abbreviation != "X",
+         games_played > 50) %>%
+  select(position_abbreviation, player_full_name, team_name, age, rbi, ops, avg, home_runs, stolen_bases, games_played) %>%
+  group_by(position_abbreviation) %>%
+  arrange(-as.numeric(ops)) %>%
+  slice(1:25) %>%
+  rename(Pos = position_abbreviation,
+         Name = player_full_name,
+         Team = team_name,
+         Age = age,
+         RBI = rbi,
+         OPS = ops,
+         AVG = avg,
+         HR = home_runs,
+         SB = stolen_bases,
+         GP = games_played)
+
+pitchers_qualified <- pitchers_qualified %>%
+  select(position_abbreviation, player_full_name, team_name, age, strike_outs, era, whip, innings_pitched, games_started) %>%
+  rename(Pos = position_abbreviation,
+         Name = player_full_name,
+         Team = team_name,
+         Age = age,
+         K = strike_outs,
+         ERA = era,
+         WHIP = whip,
+         IP = innings_pitched,
+         Starts = games_started)
+
+hitters_qualified <- hitters_qualified %>%
+  select(position_abbreviation, player_full_name, team_name, age, rbi, ops, avg, home_runs, stolen_bases, games_played) %>%
+  rename(Pos = position_abbreviation,
+         Name = player_full_name,
+         Team = team_name,
+         Age = age,
+         RBI = rbi,
+         OPS = ops,
+         AVG = avg,
+         HR = home_runs,
+         SB = stolen_bases,
+         GP = games_played)
 ```
 
-!(~/GitHub/Melville_Rotisserie/images/league_logo.png)
+![league logo](https://raw.githubusercontent.com/mafichman/Melville_Rotisserie/main/images/league_logo.png)
 
 
 # Welcome to The League
 
-Welcome to the 2026 Melville Rotisserie Baseball League (MRBL). Draft your own fantasy team of major leaguers to see who is West Philly's best General Manager!
+Welcome to the 2026 Melville Rotisserie Baseball League (MRBL). Draft your own team of major leaguers and compete to see who is West Philly's best General Manager!
 
-Fantasy baseball was created by writer Daniel Okrent and friends in 1980. They would meet at a restaurant in New York called "La Rotisserie Francaise" - so they called their game name "Rotisserie Baseball." Because this whole thing about rotisserie chicken is sillier than "Fantasy Baseball" - we call this, the MRBL! 
+Fantasy baseball was created by writer Daniel Okrent and friends in 1980. They would meet at a restaurant in New York called "La Rotisserie Francaise" - so they called their game "Rotisserie Baseball."
 
-This season preview packet describes the league rules, stats, and the draft process. The packet contains a list of 2025 MLB statistics you can study to prepare to draft your best team!
+This season preview packet describes the league rules, stats, and the draft process. It contains 2025 MLB statistics you can study to prepare to draft your best team!
 
-We will draft our team on Sunday, March 22nd from 10am-1pm at Commissioner's Headquarters at 530 S. Melville St. Thanks to Lev's suggestion - we will have rotisserie chicken on hand for lunch.
+We will draft our teams on Sunday, March 22nd from 10am-1pm at Commissioner's Headquarters - 530 S. Melville St. Thanks to Lev's suggestion - we will have rotisserie chicken on hand for lunch.
 
 # League Rules
 
-- Teams accumulate stats from the start of the season until the All-Star Break.
+- Teams accumulate stats from the start of the season until the All-Star Break. At that point we crown a winner!
 
-- League standings, players stats and league news will be updated to the league website - mafichman.github.io/melville_rotisserie a couple times per week.
+- League standings, player stats and league news will be on the league website - mafichman.github.io/melville_rotisserie - updated a couple times per week.
 
-- We will collect stats for nine categories. For batters - Batting Average, Home Runs, Stolen Bases, OPS, and RBIs. For pitchers - Innings Pitched, Strikeouts, ERA and WHIP. Learn more about the stats in the "Statistics Guide" section of the preview packet.
+- Collect stats for nine categories. For batters - Batting Average, Home Runs, Stolen Bases, OPS, and RBIs. For pitchers - Innings Pitched, Strikeouts, ERA and WHIP. Learn more about the stats in the "Statistics Guide" section of the preview packet.
 
 - You get points based on your rank in each statistical category. If you are in first place in batting average - you get 5 points. If you are in second place - 3 points. Third place - 1 point. Fourth and fifth place - you get bupkis.
 
+- The team with the most points at the end of our season wins!
+
 - Your lineup consists of:
 
-  - 8 starting position players
-  - 1 Util/DH player
-  - 4 pitchers (starting pitchers only)
-  - 4 bench players (one each - C, IF, OF, P)
+    - 8 starting position players
+    - 1 Util/DH player
+    - 4 pitchers (starting pitchers only)
+    - 4 bench players (one each - C, IF, OF, P)
 
 
-- There are no trades or adding/dropping players. The only exception is if a player is officially placed on injured reserve (IR) by their team.
+- There are no trades and you cannot add or drop players. The only exception: if a player on your team is officially placed on injured reserve (IR) by their MLB team.
 
-- If a player is placed on IR by their team: 
+- If a player is placed on IR: 
 
     - You may drop that player from your roster, and your bench player can be substituted (as OF, IF, C, or P). The bench player's stats for the whole period will be used, and the injured player's stats will be lost to your team. You can replace your empty bench spot with an unsigned player from MLB.
 
@@ -52,14 +131,25 @@ We will draft our team on Sunday, March 22nd from 10am-1pm at Commissioner's Hea
 
 - Signing free agents to fill your empty roster spot: 
 
-    - If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Use the league website to go to baseballreference.com and look up a new player you'd like to sign, and communicate to High Honorable Commissioner Coach Michael that you'd like to add that player to your roster. (Ask your parents to text the Commissioner your roster move, or tell Isaac to tell him!)
+    - If you decide to drop an IR player and substitute a bench player, you will have an empty spot on your team. Use the league website to go to baseballreference.com and look up a new player you'd like to sign, and communicate to High Honorable Commissioner Coach Michael that you'd like to add that player to your roster. (Ask your parents to text the Commissioner your roster move, or tell Isaac to tell him!)
 
 
-## Statistics Guide
+## Draft Rules
+
+- The draft is 17 rounds. We will move quickly. Be prepared with your player list.
+
+- You have 90 seconds to make a pick. If you can't make a pick in time, the Commissioner will assign you the best available player at a random position you haven't filled.
+
+- The draft order has been randomly selected: 1. Caleb, 2. Lev, 3. Isaac, 4. Robin, 5. Jack.
+
+- We will draft in "snake order." In round 2 (and other even numbered rounds), Jack drafts first and we go back in reverse order: 1. Jack, 2. Lev, 3. Isaac, 4. Robin, 5. Jack.
+
+ 
+# Statistics Guide
 
 How do we calculate the statistics we are using in the league?
 
-### Batting Stats
+## Batting Stats
 
 -BA (Batting Average): Total Team Hits / Total Team At Bats
 
@@ -71,7 +161,7 @@ How do we calculate the statistics we are using in the league?
 
 -OPS (On base pct plus slugging pct): (Hits + Walks / Plate Appearances) + (Total Bases / At bats)
 
-### Pitching Stats
+## Pitching Stats
 
 -IP: Total team innings pitched
 
@@ -82,12 +172,248 @@ How do we calculate the statistics we are using in the league?
 -WHIP: (Walks + Hits) / Innings Pitched
 
 
-## League Rules
+# Player Guide
 
-You can also embed plots, for example:
+The following lists contain player statistics from 2025.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+Position players: The top 25 players at each position who played at least 50 games last year, ranked by OPS.
+
+Pitchers: The top 150 pitchers in the league with more than 5 starts last year, ranked by WHIP.
+
+They do not contain all of the league players who will be playing in 2026, and it doesn't consider injuries or suspensions. So, for example, Jurickson Profar got suspended for 2026 - he's on the list, but maybe don't draft him! There aren't any rookies - if you know of somebody who is gonna be good, but only played a few games last year, they won't be listed here. Do some homework and get the edge on your opponents!
+
+## Position Players
+
+### Catcher
+
+```{r echo=FALSE}
+hitters %>% 
+  filter(Pos == "C") %>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### 1B
+
+```{r echo=FALSE}
+hitters %>% 
+  filter(Pos == "1B") %>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+### 2B
+
+```{r echo=FALSE}
+hitters %>% 
+  filter(Pos == "2B") %>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+### SS
+
+```{r echo=FALSE}
+hitters %>% 
+  filter(Pos == "SS") %>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+### 3B
+
+```{r echo=FALSE}
+hitters %>% 
+  filter(Pos == "3B") %>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+### OF
+
+```{r echo=FALSE}
+hitters %>% 
+  filter(Pos %in% c("LF", "CF", "RF"))%>%
+  arrange(-as.numeric(OPS)) %>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+### DH
+
+```{r echo=FALSE}
+hitters %>% 
+  filter(Pos == "DH") %>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+## Pitchers
+
+```{r echo=FALSE}
+pitchers %>% 
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+# League Leaders
+
+Here are the top 10s in each of our league stats
+
+## HR
+
+```{r echo=FALSE}
+hitters_qualified %>%
+  arrange(-as.numeric(HR)) %>%
+  slice(1:10)%>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+## AVG
+
+```{r echo=FALSE}
+hitters_qualified %>%
+  arrange(-as.numeric(AVG)) %>%
+  slice(1:10)%>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+## OPS
+
+```{r echo=FALSE}
+hitters_qualified %>%
+  arrange(-as.numeric(OPS)) %>%
+  slice(1:10)%>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+## SB
+
+```{r echo=FALSE}
+hitters_qualified %>%
+  arrange(-as.numeric(SB)) %>%
+  slice(1:10)%>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+## RBI
+
+```{r echo=FALSE}
+hitters_qualified %>%
+  arrange(-as.numeric(RBI)) %>%
+  slice(1:10)%>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+## IP
+
+```{r echo=FALSE}
+pitchers_qualified %>%
+  arrange(-as.numeric(IP)) %>%
+  slice(1:10)%>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+## ERA
+
+```{r echo=FALSE}
+pitchers_qualified %>%
+  arrange(as.numeric(ERA)) %>%
+  slice(1:10)%>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+## WHIP
+
+```{r echo=FALSE}
+pitchers_qualified %>%
+  arrange(as.numeric(WHIP)) %>%
+  slice(1:10)%>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```
+
+## K
+
+```{r echo=FALSE}
+pitchers_qualified %>%
+  arrange(-as.numeric(K)) %>%
+  slice(1:10)%>%
+  kable() %>%
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped")
+  ) %>%
+  row_spec(0, bold = TRUE)
+```

@@ -13,7 +13,7 @@ library(DT)
 
 allBatters <- bref_daily_batter(t1 = "2026-03-01", t2 = Sys.Date())
 
-allPitchers <- bref_daily_pitcher(t1 = "2026-06-01", t2 = Sys.Date())
+allPitchers <- bref_daily_pitcher(t1 = "2026-03-01", t2 = Sys.Date())
 
 # Initialize Rosters
 
@@ -109,7 +109,7 @@ stats_pitching_points <- stats_pitching %>%
   arrange(value) %>%
   mutate(points = row_number()))
 
-# bind all stats, apply stat weighting formula
+# bind all stats, apply stat weighting formula (5/3/1/0/0)
 
 # Added a case_when statement so that if two players are tied in a stat, they both get the higher point value
 # e.g. tied for first place, one arbitrarily gets sorted to 2nd.
@@ -121,8 +121,8 @@ all_stats <- rbind(stats_batting_points, stats_pitching_points) %>%
   arrange(-points) %>%
   mutate(points = case_when(points == 5 ~ 5,
                             points == 4 ~ 3,
-                            points == 3 ~ 1,
-                            points == 2 ~ 0,
+                            points == 3 ~ 2,
+                            points == 2 ~ 1,
                             points == 1 ~ 0)) %>%
   mutate(points = case_when(lag(value) == value ~ lag(points),
                             .default = points),

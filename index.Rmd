@@ -1,10 +1,11 @@
 ---
 title: "Melville Rotisserie Standings"
-author: "High Honorable League Commissioner Coach Mister Professor Michael"
+author: "High Honorable League Commissioner Michael"
 date: "`r Sys.Date()`"
 output:
   html_document:
     toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -21,21 +22,16 @@ library(DT)
 source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 ```
 
+![](https://raw.githubusercontent.com/mafichman/Melville_Rotisserie/main/images/league_logo.png)
+
+
 # News and Notes
 
-- 8/15: Final league stats compiled.
+- 3/25 - Opening Day! The season has begun!
 
-- 7/28: Brandon Lowe was placed on IR by Tampa, and moved to Lev's bench. He was replaced by CJ Abrams. Lev can drop Lowe if he chooses.
+- 3/22 - League Draft is complete. Robin accidentally drafted pitcher Nick Pivetta into an infielder spot. The commissioner dropped Pivetta from his roster and replaced him with the best available reserve IF Geraldo Perdomo.
 
-- 7/3: Robin has some injured players. Chris Sale and Corbin Carroll were moved to the bench for Kris Bubic and Lawrence Butler. He can replace those players with free agents if he wants.
-
-- 6/22: Site updates - Player names in the rosters are now linked to their Baseball Reference pages.
-
-- 6/18: Michael King (Isaac, SEA) has been placed on Injured Reserve and was swapped with Framber Valdez on Isaac's roster. Isaac can sign a new player and drop King if he chooses.
-
-- 6/15: Michael dropped Nathan Eovaldi (TEX), who was placed on Injured Reserve, and replaced him with Robbie Ray (SF) from the Bench. He picked up Kodai Senga (NYM), who is now his bench pitcher.
-
-- 6/10: Isaac dropped Alex Bregman (BOS) prior to the start of the season - he drafted him without knowing he was on IR. He replaced him at 3B with Alec Bohm (PHI).
+- 3/22 - The Commissioner adjusted the points formula for 3rd and 4th place in a statistical category. First place in a stat - 5pts, second - 3pts, third - 2pts, fourth - 1pt, fifth - 0pts.
 
 # Current Standings
 
@@ -94,21 +90,27 @@ datatable(pitcher_roster %>%
 ```
 # League Rules
 
-- Teams accumulate stats from the start of the season until the All-Star Break.
+- Teams accumulate stats from the start of the season until the All-Star Break. At that point we crown a winner!
+
+- League standings, player stats and league news will be on the league website - mafichman.github.io/melville_rotisserie - updated a couple times per week.
+
+- Collect stats for nine categories. For batters - Batting Average, Home Runs, Stolen Bases, OPS, and RBIs. For pitchers - Innings Pitched, Strikeouts, ERA and WHIP. Learn more about the stats in the "Statistics Guide" section of the preview packet.
 
 - You get points based on your rank in each statistical category. If you are in first place in batting average - you get 5 points. If you are in second place - 3 points. Third place - 1 point. Fourth and fifth place - you get bupkis.
 
+- The team with the most points at the end of our season wins!
+
 - Your lineup consists of:
 
-  - 8 starting position players
-  - 1 Util/DH player
-  - 4 pitchers (starting pitchers only)
-  - 4 bench players (C, IF, OF, P)
+    - 8 starting position players
+    - 1 Util/DH player
+    - 4 pitchers (starting pitchers only)
+    - 4 bench players (one each - C, IF, OF, P)
 
 
-- There are no trades or adding/dropping players. The only exception is if a player is officially placed on injured reserve (IR) by their team.
+- There are no trades and you cannot add or drop players. The only exception: if a player on your team is officially placed on injured reserve (IR) by their MLB team.
 
-- If a player is placed on IR by their team: 
+- If a player is placed on IR: 
 
     - You may drop that player from your roster, and your bench player can be substituted (as OF, IF, C, or P). The bench player's stats for the whole period will be used, and the injured player's stats will be lost to your team. You can replace your empty bench spot with an unsigned player from MLB.
 
@@ -118,8 +120,7 @@ datatable(pitcher_roster %>%
 
 - Signing free agents to fill your empty roster spot: 
 
-    - If you decide to drop an injured player and substitute a bench player, you will have an empty spot on your team. Look up a new player you'd like to sign, and communicate to the Commissioner that you'd like to add that player to your roster. (Ask your parents to text Michael your roster move, or tell Isaac to tell him!)
-
+    - If you decide to drop an IR player and substitute a bench player, you will have an empty spot on your team. Use the league website to go to baseballreference.com and look up a new player you'd like to sign, and communicate to High Honorable Commissioner Coach Michael that you'd like to add that player to your roster. (Ask your parents to text the Commissioner your roster move, or tell Isaac to tell him!)
 
 # Statistics Guide
 
