@@ -1,6 +1,5 @@
 ---
-title: "Melville Rotisserie Standings"
-author: "High Honorable League Commissioner Michael"
+title: "Melville Rotisserie Baseball League"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -24,10 +23,11 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 ![](https://raw.githubusercontent.com/mafichman/Melville_Rotisserie/main/images/league_logo.png)
 
+**New Website! [melvillebaseball](http://melvillebaseball.com)**
 
 # News and Notes
 
-- 3/27 - Opening Day was Wednesday, and the first score update of the season was today. If a player doesn't show up on your roster with any stats - they haven't played in a game yet.... I will be buying a web domain to make the site easier to find, check back soon for more info on that.
+- 3/27 - Opening Day was Wednesday, and the first score update of the season was today. If a player doesn't show up on your roster with any stats - they haven't played in a game yet.
 
 - 3/22 - League Draft is complete. Robin accidentally drafted pitcher Nick Pivetta into an infielder spot. The commissioner dropped Pivetta from his roster and replaced him with the best available reserve IF Geraldo Perdomo.
 
