@@ -23,7 +23,7 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 ![](https://raw.githubusercontent.com/mafichman/Melville_Rotisserie/main/images/league_logo.png)
 
-**New Website! [melvillebaseball](http://melvillebaseball.com)**
+**Big News! New Website - [melvillebaseball.com](http://melvillebaseball.com)**
 
 # News and Notes
 
