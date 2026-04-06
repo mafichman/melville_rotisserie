@@ -27,11 +27,22 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 # News and Notes
 
+- 4/6 - The following players on Injured Reserve lists and can be replaced by free agents:
+
+  - Lev - JP Crawford - needs Reserve IF
+  - Robin - Hunter Greene (replaced in lineup by Andrew Abbott) - needs Bench P
+  - Isaac - Alejandro Kirk (Bench C), Mookie Betts (IF)
+  
+- 4/6 - Mookie Betts was moved to Isaac's Bench spot and replaced by Francisco Lindor.
+
+- 4/3 - Isaac dropped injured Sean Murphy and Corbin Burnes. Kyle Bradish was moved from bench to starting Pitcher. Isaac picked up Alejandro Kirk (bench catcher) and Trevor Rogers (bench pitcher) as a free agents.
+
+- 4/3 - Caleb dropped injured Blake Snell and Carlos Rodon. He picked up free agents Andrew Painter (staring pitcher) and Framber Valdez (bench pitcher)
+
 - 3/27 - Opening Day was Wednesday, and the first score update of the season was today. If a player doesn't show up on your roster with any stats - they haven't played in a game yet.
 
 - 3/22 - League Draft is complete. Robin accidentally drafted pitcher Nick Pivetta into an infielder spot. The commissioner dropped Pivetta from his roster and replaced him with the best available reserve IF Geraldo Perdomo.
 
-- 3/22 - The Commissioner adjusted the points formula for 3rd and 4th place in a statistical category. First place in a stat - 5pts, second - 3pts, third - 2pts, fourth - 1pt, fifth - 0pts.
 
 # Current Standings
 
