@@ -27,13 +27,17 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 # News and Notes
 
+If you have a player on Injured Reserve, you can [check this site](https://www.espn.com/mlb/injuries) to see if it's short or long term.
+
+- 4/8 - Juan Soto (Isaac) was placed on 10-day IR.
+
 - 4/6 - The following players on Injured Reserve lists and can be replaced by free agents:
 
   - Lev - JP Crawford - needs Reserve IF
   - Robin - Hunter Greene (replaced in lineup by Andrew Abbott) - needs Bench P
   - Isaac - Alejandro Kirk (Bench C), Mookie Betts (IF)
   
-- 4/6 - Mookie Betts was moved to Isaac's Bench spot and replaced by Francisco Lindor.
+- 4/6 - Mookie Betts was moved to Isaac's Bench spot and replaced by Francisco Lindor. Betts is on the 10-day IR.
 
 - 4/3 - Isaac dropped injured Sean Murphy and Corbin Burnes. Kyle Bradish was moved from bench to starting Pitcher. Isaac picked up Alejandro Kirk (bench catcher) and Trevor Rogers (bench pitcher) as a free agents.
 
