@@ -27,17 +27,20 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 # News and Notes
 
-If you have a player on Injured Reserve, you can [check this site](https://www.espn.com/mlb/injuries) to see if it's short or long term.
+If you have a player on Injured Reserve, you can [check this site](https://www.espn.com/mlb/injuries) to see if it's short (10 days) or long term.
 
-- 4/13 - George Springer (Jack) was placed on the 10 day IR with a toe fracture.
+- 4/16 - Jeremy Pena (Jack) was placed on 10-day IR.
 
-- 4/8 - Juan Soto (Isaac) was placed on 10-day IR.
-
-- 4/6 - The following players on Injured Reserve lists and can be replaced by free agents:
+The following players on longer term IR lists can be replaced by free agents:
 
   - Lev - JP Crawford - needs Reserve IF
   - Robin - Hunter Greene (replaced in lineup by Andrew Abbott) - needs Bench P
   - Isaac - Alejandro Kirk (Bench C), Mookie Betts (IF)
+
+
+- 4/13 - George Springer (Jack) was placed on the 10 day IR with a toe fracture.
+
+- 4/8 - Juan Soto (Isaac) was placed on 10-day IR.
   
 - 4/6 - Mookie Betts was moved to Isaac's Bench spot and replaced by Francisco Lindor. Betts is on the 10-day IR.
 
@@ -45,14 +48,10 @@ If you have a player on Injured Reserve, you can [check this site](https://www.e
 
 - 4/3 - Caleb dropped injured Blake Snell and Carlos Rodon. He picked up free agents Andrew Painter (staring pitcher) and Framber Valdez (bench pitcher)
 
-- 3/27 - Opening Day was Wednesday, and the first score update of the season was today. If a player doesn't show up on your roster with any stats - they haven't played in a game yet.
 
-- 3/22 - League Draft is complete. Robin accidentally drafted pitcher Nick Pivetta into an infielder spot. The commissioner dropped Pivetta from his roster and replaced him with the best available reserve IF Geraldo Perdomo.
+# Standings
 
-
-# Current Standings
-
-*Data are pulled from Baseball Reference on the date indicated in the page header*
+*Data are current to the date indicated at the top of the page*
 
 Bold-face numbers indicate the leader in each statistical category. 
 
@@ -69,11 +68,13 @@ left_join(stats_batting, stats_pitching, by = c("Owner" = "Owner")) %>%
 
 ```
 
-# Sortable Player Statistics
+# Player Statistics {.tabset}
 
-Sort through team and player statistics. You can type in your team's name in the search bar to look at only your team OR search for an individual player by name. This table only contains players drafted in the Melville Rotisserie league.
+Sort through team and player statistics. Type your team's name in the search bar to look at only your team OR search for an individual player by name. This table only contains players drafted in the Melville Rotisserie league.
 
 You can click on a statistic to sort the players from highest-to-lowest or lowest-to-highest.
+
+New feature - click the tab to choose batter or pitcher stats.
 
 ## Batters
 
@@ -105,13 +106,15 @@ datatable(pitcher_roster %>%
           escape = FALSE)
 
 ```
-# League Rules
+# League Rules and Stats {.tabset}
+
+## League Rules
 
 - Teams accumulate stats from the start of the season until the All-Star Break. At that point we crown a winner!
 
-- League standings, player stats and league news will be on the league website - mafichman.github.io/melville_rotisserie - updated a couple times per week.
+- League standings, player stats and league news will be on the league website - [melvillebaseball.com](http://melvillebaseball.com) - updated a couple times per week.
 
-- Collect stats for nine categories. For batters - Batting Average, Home Runs, Stolen Bases, OPS, and RBIs. For pitchers - Innings Pitched, Strikeouts, ERA and WHIP. Learn more about the stats in the "Statistics Guide" section of the preview packet.
+- Collect stats for nine categories. For batters - Batting Average, Home Runs, Stolen Bases, OPS, and RBIs. For pitchers - Innings Pitched, Strikeouts, ERA and WHIP. Learn more about the stats in the "Statistics Guide" section at the bottom of the page.
 
 - You get points based on your rank in each statistical category. If you are in first place in batting average - you get 5 points. If you are in second place - 3 points. Third place - 2 point. Fourth place - 1 point. Fifth place - you get bupkis.
 
@@ -137,13 +140,13 @@ datatable(pitcher_roster %>%
 
 - Signing free agents to fill your empty roster spot: 
 
-    - If you decide to drop an IR player and substitute a bench player, you will have an empty spot on your team. Use the league website to go to baseballreference.com and look up a new player you'd like to sign, and communicate to High Honorable Commissioner Coach Michael that you'd like to add that player to your roster. (Ask your parents to text the Commissioner your roster move, or tell Isaac to tell him!)
+    - If you decide to drop an IR player and substitute a bench player, you will have an empty spot on your team. Use the league website to go to (baseballreference.com)[http://baseballreference.com] and look up a new player you'd like to sign, and communicate to High Honorable Commissioner Coach Michael that you'd like to add that player to your roster. (Ask your parents to text the Commissioner your roster move, or tell Isaac to tell him!)
 
-# Statistics Guide
+## Statistics Guide
 
 How do we calculate the statistics we are using in the league?
 
-## Batting Stats
+### Batting Stats
 
 -BA (Batting Average): Total Team Hits / Total Team At Bats
 
@@ -155,7 +158,7 @@ How do we calculate the statistics we are using in the league?
 
 -OPS (On base pct plus slugging pct): (Hits + Walks / Plate Appearances) + (Total Bases / At bats)
 
-## Pitching Stats
+### Pitching Stats
 
 -IP: Total team innings pitched
 
