@@ -28,10 +28,12 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 # News and Notes
 
 [Check this site](https://www.espn.com/mlb/injuries) for official MLB injury information.
+
+- **There is a new section of the website where you can submit requests to sign and drop players directly to the commissioner.**
  
 - **4/20** - Most teams have some players on IR, and some are ready to return. Reminder - you can only replace a starter with a bench player, and drop him for a free agent if he is currently on IR.
 
-- Isaac - Mookie Betts is ready to return from IR, but must remain on the bench after having been moved. Juan Soto is projected to return to the Mets this week. Alejandro Kirk had surgery on his thumb and will be out six weeks - you can replace him with a free agent at Bench Catcher. 
+- Isaac - Mookie Betts is ready to return from IR, he can still be dropped, but if you keep him, he must remain on the bench. Juan Soto is projected to return to the Mets this week. Alejandro Kirk had surgery on his thumb and will be out six weeks - you can replace him with a free agent at Bench Catcher. 
 
 - Jack - Christian Yelich is on the 10 day DL and expected to be out until "mid-to-late May."  George Springer is projected to return soon. Jeremy Pena (Jack) is on 10-day IR but day-to-day. 
 
@@ -101,6 +103,29 @@ datatable(pitcher_roster %>%
           escape = FALSE)
 
 ```
+# Request A Roster Move
+
+If you have a player on IR that you want to drop or bench, you can type information into this form to send the commissioner a roster request. 
+
+You can:
+
+- a) Move a starter who is on IR to your bench, and replace them with your bench player at that position. 
+
+- b) Drop a starter who is on IR, replace them with the bench player at that position, and sign a free agent bench player for the same position. 
+
+- c) Drop a bench player who is on IR, and sign a free agent bench player for the same position.
+
+You cannot:
+
+Drop a starter and sign a free agent directly to the starting roster.
+
+## Searching for Free Agents
+
+If you want to add a free agent, you can visit [baseball-reference.com](http://baseball-reference.com) or [mlb.com](http://mlb.com) to find the right player at the position you need. Make sure you search the team rosters to see if that player is already on a team.
+
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScnzs8V5oUbaddb4Spe6KegZfdX9I3g_5r7iv3dW-uMXoiFjg/viewform?usp=sharing&ouid=111229545325845159937" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
 # League Rules and Stats {.tabset}
 
 ## League Rules
