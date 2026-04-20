@@ -115,16 +115,11 @@ You can:
 
 - c) Drop a bench player who is on IR, and sign a free agent bench player for the same position.
 
-You cannot:
-
-Drop a starter and sign a free agent directly to the starting roster.
-
-## Searching for Free Agents
+You cannot sign a free agent directly to the starting roster.
 
 If you want to add a free agent, you can visit [baseball-reference.com](http://baseball-reference.com) or [mlb.com](http://mlb.com) to find the right player at the position you need. Make sure you search the team rosters to see if that player is already on a team.
 
-
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScnzs8V5oUbaddb4Spe6KegZfdX9I3g_5r7iv3dW-uMXoiFjg/viewform?usp=sharing&ouid=111229545325845159937" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScnzs8V5oUbaddb4Spe6KegZfdX9I3g_5r7iv3dW-uMXoiFjg/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 # League Rules and Stats {.tabset}
 
