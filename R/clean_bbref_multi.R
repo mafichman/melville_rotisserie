@@ -40,6 +40,18 @@ batter_roster <- left_join(battersList, allBatters, by = c("Name" = "Name")) %>%
                        substr(bbref_id, 1, 1), '/', 
                        bbref_id, '.shtml" target="_blank">', `Name`, '</a>'))
 
+hitters_mlb <- mlb_stats(stat_type = 'season', player_pool = "All", stat_group = 'hitting', season = 2026)
+
+available_batters <- allBatters %>% 
+  filter(!bbref_id %in% batter_roster$bbref_id) %>%
+  mutate(
+    bref_link = paste0('<a href="https://www.baseball-reference.com/players/',
+                       substr(bbref_id, 1, 1), '/', 
+                       bbref_id, '.shtml" target="_blank">', `Name`, '</a>')) %>%
+  left_join(., hitters_mlb %>% 
+              select(player_full_name, position_name), 
+            by = c("Name" = "player_full_name"))
+
 stats_batting <- batter_roster %>%
   filter(Status == "Starter") %>%
   group_by(Owner) %>%
@@ -74,6 +86,13 @@ pitcher_roster <- left_join(pitchersList, allPitchers, by = c("Name" = "Name")) 
     bref_link = paste0('<a href="https://www.baseball-reference.com/players/',
                        substr(bbref_id, 1, 1), '/', 
                        bbref_id, '.shtml" target="_blank">', `Name`, '</a>'))
+
+available_pitchers <- allPitchers %>% filter(!bbref_id %in% pitcher_roster$bbref_id) %>%
+  mutate(
+    bref_link = paste0('<a href="https://www.baseball-reference.com/players/',
+                       substr(bbref_id, 1, 1), '/', 
+                       bbref_id, '.shtml" target="_blank">', `Name`, '</a>'))
+  
 
 stats_pitching <- pitcher_roster %>%
   filter(Status == "Starter") %>%

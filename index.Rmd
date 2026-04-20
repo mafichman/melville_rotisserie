@@ -29,7 +29,7 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 [Check this site](https://www.espn.com/mlb/injuries) for official MLB injury information.
 
-- **There is a new section of the website where you can submit requests to sign and drop players directly to the commissioner.**
+- **There are two new sections of the website. You can submit requests to sign and drop players directly to the commissioner, and you can search free agents directly on the site.**
  
 - **4/20** - Most teams have some players on IR, and some are ready to return. Reminder - you can only replace a starter with a bench player, and drop him for a free agent if he is currently on IR.
 
@@ -117,7 +117,7 @@ You can:
 
 You cannot sign a free agent directly to the starting roster.
 
-If you want to add a free agent, you can visit [baseball-reference.com](http://baseball-reference.com) or [mlb.com](http://mlb.com) to find the right player at the position you need. Make sure you search the team rosters to see if that player is already on a team.
+If you want to add a free agent, search the listings in the next section.
 
 <p>Use the form below to request a roster move.</p>
 <p>
@@ -128,6 +128,41 @@ If you want to add a free agent, you can visit [baseball-reference.com](http://b
     Open the roster move form
   </a>
 </p>
+
+# Free Agents {.tabset}
+
+Look through these listings of free agents to see if there's anybody you want to sign. Batters are arranged by OPS, pitchers by WHIP. Pitchers who have not started a game this year are not listed.
+
+## Batters
+
+```{r echo=FALSE}
+# Roster display - Batters
+datatable(available_batters %>%
+            select(bref_link, 
+                   Team, position_name, G, AB, H, BB, HR, 
+                   RBI, SB, BA, 
+                  OPS) %>%
+            rename(Name = bref_link,
+                   Pos = position_name) %>%
+            arrange(-OPS), 
+          options = list(pageLength = 10),
+          escape = FALSE)
+
+```
+
+## Pitchers
+
+```{r echo=FALSE}
+datatable(available_pitchers %>%
+            select(bref_link, Team,
+                   GS, W, L, IP, H, BB, ER, SO, ERA, WHIP) %>%
+            rename(Name = bref_link) %>%
+            filter(GS > 0) %>%
+            arrange(WHIP), 
+          options = list(pageLength = 10),
+          escape = FALSE)
+
+```
 
 # League Rules and Stats {.tabset}
 
