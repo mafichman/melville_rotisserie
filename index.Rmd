@@ -105,7 +105,7 @@ datatable(pitcher_roster %>%
 ```
 # Request A Roster Move
 
-If you have a player on IR that you want to drop or bench, you can type information into this form to send the commissioner a roster request. 
+If you have a player on IR that you want to drop or bench, you can now fill out a form to send the Commissioner a roster move. 
 
 You can:
 
@@ -119,7 +119,15 @@ You cannot sign a free agent directly to the starting roster.
 
 If you want to add a free agent, you can visit [baseball-reference.com](http://baseball-reference.com) or [mlb.com](http://mlb.com) to find the right player at the position you need. Make sure you search the team rosters to see if that player is already on a team.
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScnzs8V5oUbaddb4Spe6KegZfdX9I3g_5r7iv3dW-uMXoiFjg/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<p>Use the form below to request a roster move.</p>
+<p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScnzs8V5oUbaddb4Spe6KegZfdX9I3g_5r7iv3dW-uMXoiFjg/viewform"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="display:inline-block; padding:12px 20px; background:#2c7fb8; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">
+    Open the roster move form
+  </a>
+</p>
 
 # League Rules and Stats {.tabset}
 
