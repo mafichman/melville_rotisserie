@@ -105,21 +105,21 @@ datatable(pitcher_roster %>%
 ```
 # Request A Roster Move
 
-If you have a player on IR that you want to drop or bench, you can now fill out a form to send the Commissioner a roster move. 
+If you have a player *on IR* that you want to drop or bench, you can now directly send the Commissioner a roster move request. 
 
 You can:
 
-- a) Move a starter who is on IR to your bench, and replace them with your bench player at that position. 
+- a) Move an injured starter to your bench, and replace them with your bench player at that position. 
 
-- b) Drop a starter who is on IR, replace them with the bench player at that position, and sign a free agent bench player for the same position. 
+- b) Drop an injured starter, replace them with a bench player, and sign a free agent bench player for the same position. 
 
-- c) Drop a bench player who is on IR, and sign a free agent bench player for the same position.
+- c) Drop an injured bench player and sign a free agent bench player for the same position.
 
-You cannot sign a free agent directly to the starting roster.
+You *cannot* sign a free agent directly to the starting roster.
 
-If you want to add a free agent, search the listings in the next section.
+To find a free agent player, search the listings in the next section.
 
-<p>Use the form below to request a roster move.</p>
+<p>Use the link below to request a roster move.</p>
 <p>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScnzs8V5oUbaddb4Spe6KegZfdX9I3g_5r7iv3dW-uMXoiFjg/viewform"
      target="_blank"
@@ -131,7 +131,7 @@ If you want to add a free agent, search the listings in the next section.
 
 # Free Agents {.tabset}
 
-Look through these listings of free agents to see if there's anybody you want to sign. Batters are arranged by OPS, pitchers by WHIP. Pitchers who have not started a game this year are not listed.
+Look through these listings of free agents to see if there's anybody you want to sign. Batters are ranked by OPS, pitchers by WHIP. Pitchers who have not started a game this year are not listed.
 
 ## Batters
 
