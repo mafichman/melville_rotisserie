@@ -29,21 +29,22 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 [Check this site](https://www.espn.com/mlb/injuries) for official MLB injury information.
 
-- **There are two new sections of the website. You can submit requests to sign and drop players directly to the commissioner, and you can search free agents directly on the site.**
- 
-- **4/20** - Most teams have some players on IR, and some are ready to return. Reminder - you can only replace a starter with a bench player, and drop him for a free agent if he is currently on IR.
+- **New site features: You can submit requests to sign and drop players directly to the commissioner, and you can search free agents directly on the site.**
 
-- Isaac - Mookie Betts is ready to return from IR, he can still be dropped, but if you keep him, he must remain on the bench. Juan Soto is projected to return to the Mets this week. Alejandro Kirk had surgery on his thumb and will be out six weeks - you can replace him with a free agent at Bench Catcher. 
+**Current players on IR**
 
-- Jack - Christian Yelich is on the 10 day DL and expected to be out until "mid-to-late May."  George Springer is projected to return soon. Jeremy Pena (Jack) is on 10-day IR but day-to-day. 
+- Isaac - Mookie Betts (IF Bench, 10-Day, estimated return May 4th), Alejandro Kirk (C Bench, 10-Day, estimated return May 14th). Francisco Lindor (2B, 10-Day, estimated return June 1)
 
-- Lev - JP Crawford has returned from the IR.
+- Robin - Hunter Green (P Bench, 60-Day, est return July 1)
 
-- Robin - Hunter Greene is on long term IR, he should be dropped and replaced by a free agent pitcher for your bench.
+- Jack - Christian Yelich (DH, 10-Day, est return May 12), Jeremy Pena (IF Bench, 10-Day, est return May 8th), George Springer (OF, 10-Day, est return April 29th)
+
+
+- **4/28** - Caleb dropped JT Realmuto from his team. He was replaced in the lineup by Gabriel Moreno. He picked up Ivan Hererra as bench catcher.
 
 - **4/13** - George Springer (Jack) was placed on the 10 day IR with a toe fracture.
 
-- **4/3** - Isaac dropped injured Sean Murphy and Corbin Burnes. Kyle Bradish was moved from bench to starting Pitcher. Isaac picked up Alejandro Kirk (bench catcher) and Trevor Rogers (bench pitcher) as a free agents. Robin dropped Hunter Greene (on long-term IR) and he was replaced in the lineup by Andrew Abbott. Caleb dropped injured Blake Snell and Carlos Rodon. He picked up free agents Andrew Painter (staring pitcher) and Framber Valdez (bench pitcher)
+- **4/3** - Isaac dropped injured Sean Murphy and Corbin Burnes. Kyle Bradish was moved from bench to starting Pitcher. Isaac picked up Alejandro Kirk (bench catcher) and Trevor Rogers (bench pitcher) as a free agents. Caleb dropped injured Blake Snell and Carlos Rodon. He picked up free agents Andrew Painter (staring pitcher) and Framber Valdez (bench pitcher)
 
 
 # Standings
