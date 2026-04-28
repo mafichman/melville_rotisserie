@@ -39,6 +39,7 @@ source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
 
 - Jack - Christian Yelich (DH, 10-Day, est return May 12), Jeremy Pena (IF Bench, 10-Day, est return May 8th), George Springer (OF, 10-Day, est return April 29th)
 
+**Transactions**
 
 - **4/28** - Caleb dropped JT Realmuto from his team. He was replaced in the lineup by Gabriel Moreno. He picked up Ivan Hererra as bench catcher.
 
