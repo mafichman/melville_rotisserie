@@ -19,34 +19,20 @@ library(DT)
 # Run source code to pull data from bbref, clean rosters and stats - will run to present day by calling Sys.Date()
 # Initial date of league start needs to be hard coded
 source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
+source("~/GitHub/Melville_Rotisserie/R/fetch_IR_lists.R")
 ```
 
 ![](https://raw.githubusercontent.com/mafichman/Melville_Rotisserie/main/images/league_logo.png)
 
 **[melvillebaseball.com](http://melvillebaseball.com)**
 
-# News and Notes
-
 [Check this site](https://www.espn.com/mlb/injuries) for official MLB injury information.
 
-- **New site features: You can submit requests to sign and drop players directly to the commissioner, and you can search free agents directly on the site.**
+**New site features:**
 
-**Current players on IR**
-
-- Isaac - Mookie Betts (IF Bench, 10-Day, estimated return May 4th), Alejandro Kirk (C Bench, 10-Day, estimated return May 14th). Francisco Lindor (2B, 10-Day, estimated return June 1)
-
-- Robin - Hunter Green (P Bench, 60-Day, est return July 1)
-
-- Jack - Christian Yelich (DH, 10-Day, est return May 12), Jeremy Pena (IF Bench, 10-Day, est return May 8th), George Springer (OF, 10-Day, est return April 29th)
-
-**Transactions**
-
-- **4/28** - Caleb dropped JT Realmuto from his team. He was replaced in the lineup by Gabriel Moreno. He picked up Ivan Hererra as bench catcher.
-
-- **4/13** - George Springer (Jack) was placed on the 10 day IR with a toe fracture.
-
-- **4/3** - Isaac dropped injured Sean Murphy and Corbin Burnes. Kyle Bradish was moved from bench to starting Pitcher. Isaac picked up Alejandro Kirk (bench catcher) and Trevor Rogers (bench pitcher) as a free agents. Caleb dropped injured Blake Snell and Carlos Rodon. He picked up free agents Andrew Painter (staring pitcher) and Framber Valdez (bench pitcher)
-
+- **Injury news is now directly on the site.**
+- **Submit requests to sign and drop players directly to the commissioner.**
+- **Search free agents directly on the site.**
 
 # Standings
 
@@ -66,6 +52,29 @@ left_join(stats_batting, stats_pitching, by = c("Owner" = "Owner")) %>%
   kable_styling()
 
 ```
+
+
+# Injuries and Transactions {.tabset}
+
+IR reports are now directly accessible here. Fetched from mlb.com on the date at the top of the page
+
+## Transactions
+
+- **4/28** - Caleb dropped JT Realmuto from his team. He was replaced in the lineup by Gabriel Moreno. He picked up Ivan Hererra as bench catcher.
+
+- **4/13** - George Springer (Jack) was placed on the 10 day IR with a toe fracture.
+
+- **4/3** - Isaac dropped injured Sean Murphy and Corbin Burnes. Kyle Bradish was moved from bench to starting Pitcher. Isaac picked up Alejandro Kirk (bench catcher) and Trevor Rogers (bench pitcher) as a free agents. Caleb dropped injured Blake Snell and Carlos Rodon. He picked up free agents Andrew Painter (staring pitcher) and Framber Valdez (bench pitcher)
+
+## Injury News
+
+```{r injuries, echo = FALSE}
+datatable(injured_on_list, 
+          options = list(pageLength = 12),
+          escape = FALSE)
+
+```
+
 
 # Player Statistics {.tabset}
 
