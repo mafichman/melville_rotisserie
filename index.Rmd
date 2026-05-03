@@ -15,18 +15,19 @@ library(lubridate)
 library(kableExtra)
 library(purrr)
 library(DT)
-
+```
+```{r bbref, include=FALSE}
 # Run source code to pull data from bbref, clean rosters and stats - will run to present day by calling Sys.Date()
 # Initial date of league start needs to be hard coded
 source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
+```
+```{r mlb_IR, include=FALSE}
 source("~/GitHub/Melville_Rotisserie/R/fetch_IR_lists.R")
 ```
 
 ![](https://raw.githubusercontent.com/mafichman/Melville_Rotisserie/main/images/league_logo.png)
 
 **[melvillebaseball.com](http://melvillebaseball.com)**
-
-[Check this site](https://www.espn.com/mlb/injuries) for official MLB injury information.
 
 **New site features:**
 
@@ -67,6 +68,8 @@ IR reports are now directly accessible here. Fetched from mlb.com on the date at
 - **4/3** - Isaac dropped injured Sean Murphy and Corbin Burnes. Kyle Bradish was moved from bench to starting Pitcher. Isaac picked up Alejandro Kirk (bench catcher) and Trevor Rogers (bench pitcher) as a free agents. Caleb dropped injured Blake Snell and Carlos Rodon. He picked up free agents Andrew Painter (staring pitcher) and Framber Valdez (bench pitcher)
 
 ## Injury News
+
+[Check this site](https://www.espn.com/mlb/injuries) for official MLB injury information.
 
 ```{r injuries, echo = FALSE}
 datatable(injured_on_list, 
