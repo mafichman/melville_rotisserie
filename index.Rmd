@@ -61,9 +61,11 @@ IR reports are now directly accessible here. Fetched from mlb.com on the date at
 
 ## Transactions
 
-- **5/8** - Isaac dropped Giancarlo Stanton (OF-Bench) and replaced him with Yordan Alvarez. He dropped Roman Anthony (OF) and moved Oneill Cruz from Util/DH to OF to replace him in the lineup and moved Yordan Alvarez from bench to Util/DH. He picked up Jordan Walker to fill his OF Bench spot.
+- **5/12** - Caleb dropped Kerry Carpenter (OF), and replaced him with Brandon Marsh from the bench. He picked up Mickey Moniak (OF-Bench)
 
-- **5/7** - Caleb dropped Ronald Acuna. He was replaced at OF by Kerry Carpenter. He picked up Brandon Marsh as his bench OF.
+- **5/8** - Isaac dropped Giancarlo Stanton (OF-Bench) and replaced him with Yordan Alvarez. He dropped Roman Anthony (OF) and moved Oneill Cruz from Util/DH to OF in the lineup. He moved Yordan Alvarez from OF-Bench to Util/DH. He picked up Jordan Walker (OF-Bench).
+
+- **5/7** - Caleb dropped Ronald Acuna (OF). He was by Kerry Carpenter on the bench. He picked up Brandon Marsh (OF-Bench).
 
 - **5/2** - Isaac dropped Mookie Betts (IF-Bench) and replaced him with Ozzie Albies. He dropped Francisco Lindor and replaced him in the lineup with Albies. He dropped Alejandro Kirk and replaced him with Liam Hicks (C-Bench). He picked up Munetaka Murakami (IF-Bench).
 
