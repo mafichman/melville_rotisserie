@@ -2,9 +2,7 @@
 title: "Melville Rotisserie Baseball League"
 date: "`r Sys.Date()`"
 output:
-  html_document:
-    toc: true
-    toc_float: true
+  html_document
 ---
 
 ```{r setup, include=FALSE}
