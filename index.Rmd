@@ -59,6 +59,8 @@ IR reports are now directly accessible here. Fetched from mlb.com on the date at
 
 ## Transactions
 
+- **5/26** - Caleb requested to drop Mickey Moniak in favor of Wade Meckler - the commissioner denied this request because Meckler has only played 3 games this year. His season totals would be too low to help Caleb's team. The commissioner requests he choose another player.
+
 - **5/12** - Caleb dropped Kerry Carpenter (OF), and replaced him with Brandon Marsh from the bench. He picked up Mickey Moniak (OF-Bench)
 
 - **5/8** - Isaac dropped Giancarlo Stanton (OF-Bench) and replaced him with Yordan Alvarez. He dropped Roman Anthony (OF) and moved Oneill Cruz from Util/DH to OF in the lineup. He moved Yordan Alvarez from OF-Bench to Util/DH. He picked up Jordan Walker (OF-Bench).
@@ -149,7 +151,7 @@ To find a free agent player, search the listings in the next section.
 
 # Free Agents {.tabset}
 
-Look through these listings of free agents to see if there's anybody you want to sign. Batters are ranked by OPS, pitchers by WHIP. Pitchers who have not started a game this year are not listed.
+Look through these listings of free agents to see if there's anybody you want to sign. Batters are ranked by OPS, pitchers by WHIP. *(New - 5/27) Pitchers who have started fewer than 5 games, and batters who have appeared in fewer than 20 games are not included in Free Agent listings.*
 
 ## Batters
 
@@ -160,6 +162,7 @@ datatable(available_batters %>%
                    Team, position_name, G, AB, H, BB, HR, 
                    RBI, SB, BA, 
                   OPS) %>%
+            filter(G > 20) %>%
             rename(Name = bref_link,
                    Pos = position_name) %>%
             arrange(-OPS), 
@@ -175,7 +178,7 @@ datatable(available_pitchers %>%
             select(bref_link, Team,
                    GS, W, L, IP, H, BB, ER, SO, ERA, WHIP) %>%
             rename(Name = bref_link) %>%
-            filter(GS > 0) %>%
+            filter(GS > 5) %>%
             arrange(WHIP), 
           options = list(pageLength = 10),
           escape = FALSE)
