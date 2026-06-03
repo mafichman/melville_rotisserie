@@ -13,7 +13,7 @@ library(DT)
 
 allBatters <- bref_daily_batter(t1 = "2026-03-01", t2 = Sys.Date())
 
-allPitchers <- bref_daily_pitcher(t1 = "2026-06-01", t2 = Sys.Date())
+allPitchers <- bref_daily_pitcher(t1 = "2026-03-01", t2 = Sys.Date())
 
 # Initialize Rosters
 
@@ -39,6 +39,18 @@ batter_roster <- left_join(battersList, allBatters, by = c("Name" = "Name")) %>%
     bref_link = paste0('<a href="https://www.baseball-reference.com/players/',
                        substr(bbref_id, 1, 1), '/', 
                        bbref_id, '.shtml" target="_blank">', `Name`, '</a>'))
+
+hitters_mlb <- mlb_stats(stat_type = 'season', player_pool = "All", stat_group = 'hitting', season = 2026)
+
+available_batters <- allBatters %>% 
+  filter(!bbref_id %in% batter_roster$bbref_id) %>%
+  mutate(
+    bref_link = paste0('<a href="https://www.baseball-reference.com/players/',
+                       substr(bbref_id, 1, 1), '/', 
+                       bbref_id, '.shtml" target="_blank">', `Name`, '</a>')) %>%
+  left_join(., hitters_mlb %>% 
+              select(player_full_name, position_name), 
+            by = c("Name" = "player_full_name"))
 
 stats_batting <- batter_roster %>%
   filter(Status == "Starter") %>%
@@ -75,6 +87,13 @@ pitcher_roster <- left_join(pitchersList, allPitchers, by = c("Name" = "Name")) 
                        substr(bbref_id, 1, 1), '/', 
                        bbref_id, '.shtml" target="_blank">', `Name`, '</a>'))
 
+available_pitchers <- allPitchers %>% filter(!bbref_id %in% pitcher_roster$bbref_id) %>%
+  mutate(
+    bref_link = paste0('<a href="https://www.baseball-reference.com/players/',
+                       substr(bbref_id, 1, 1), '/', 
+                       bbref_id, '.shtml" target="_blank">', `Name`, '</a>'))
+  
+
 stats_pitching <- pitcher_roster %>%
   filter(Status == "Starter") %>%
   group_by(Owner) %>%
@@ -109,7 +128,7 @@ stats_pitching_points <- stats_pitching %>%
   arrange(value) %>%
   mutate(points = row_number()))
 
-# bind all stats, apply stat weighting formula
+# bind all stats, apply stat weighting formula (5/3/1/0/0)
 
 # Added a case_when statement so that if two players are tied in a stat, they both get the higher point value
 # e.g. tied for first place, one arbitrarily gets sorted to 2nd.
@@ -121,8 +140,8 @@ all_stats <- rbind(stats_batting_points, stats_pitching_points) %>%
   arrange(-points) %>%
   mutate(points = case_when(points == 5 ~ 5,
                             points == 4 ~ 3,
-                            points == 3 ~ 1,
-                            points == 2 ~ 0,
+                            points == 3 ~ 2,
+                            points == 2 ~ 1,
                             points == 1 ~ 0)) %>%
   mutate(points = case_when(lag(value) == value ~ lag(points),
                             .default = points),

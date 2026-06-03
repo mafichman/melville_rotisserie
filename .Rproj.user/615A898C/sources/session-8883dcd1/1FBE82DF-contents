@@ -1,0 +1,250 @@
+---
+title: "Melville Rotisserie Baseball League"
+date: "`r Sys.Date()`"
+output:
+  html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(baseballr)
+library(lubridate)
+library(kableExtra)
+library(purrr)
+library(DT)
+```
+```{r bbref, include=FALSE}
+# Run source code to pull data from bbref, clean rosters and stats - will run to present day by calling Sys.Date()
+# Initial date of league start needs to be hard coded
+source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
+```
+```{r mlb_IR, include=FALSE}
+source("~/GitHub/Melville_Rotisserie/R/fetch_IR_lists.R")
+```
+
+![](https://raw.githubusercontent.com/mafichman/Melville_Rotisserie/main/images/league_logo.png)
+
+**[melvillebaseball.com](http://melvillebaseball.com)**
+
+**New site features:**
+
+- **Injury news is now directly on the site.**
+- **Submit requests to sign and drop players directly to the commissioner.**
+- **Search free agents directly on the site.**
+
+# Standings
+
+*Data are current to the date indicated at the top of the page*
+
+Bold-face numbers indicate the leader in each statistical category. 
+
+```{r standings, echo = FALSE}
+# Render Standings
+
+left_join(stats_batting, stats_pitching, by = c("Owner" = "Owner")) %>%
+  left_join(points_table, by = c("Owner" = "Owner")) %>%
+  arrange(-Points) %>%
+  mutate(across(where(is.numeric), ~ bold_stat(., cur_column()))) %>%
+  select(Owner, Points, everything()) %>%
+  kable(escape = FALSE) %>%
+  kable_styling()
+
+```
+
+
+# Injuries and Transactions {.tabset}
+
+IR reports are now directly accessible here. Fetched from mlb.com on the date at the top of the page
+
+## Transactions
+
+- **5/28** - Caleb dropped Mickey Moniak (OF-Bench) and replaced him with free agent JJ Bleday.
+
+- **5/26** - Caleb requested to drop Mickey Moniak in favor of Wade Meckler - the commissioner denied this request because Meckler has only played 3 games this year. His season totals would be too low to help Caleb's team. The commissioner requests he choose another player.
+
+- **5/12** - Caleb dropped Kerry Carpenter (OF), and replaced him with Brandon Marsh from the bench. He picked up Mickey Moniak (OF-Bench)
+
+- **5/8** - Isaac dropped Giancarlo Stanton (OF-Bench) and replaced him with Yordan Alvarez. He dropped Roman Anthony (OF) and moved Oneill Cruz from Util/DH to OF in the lineup. He moved Yordan Alvarez from OF-Bench to Util/DH. He picked up Jordan Walker (OF-Bench).
+
+- **5/7** - Caleb dropped Ronald Acuna (OF). He was by Kerry Carpenter on the bench. He picked up Brandon Marsh (OF-Bench).
+
+- **5/2** - Isaac dropped Mookie Betts (IF-Bench) and replaced him with Ozzie Albies. He dropped Francisco Lindor and replaced him in the lineup with Albies. He dropped Alejandro Kirk and replaced him with Liam Hicks (C-Bench). He picked up Munetaka Murakami (IF-Bench).
+
+- **4/28** - Caleb dropped JT Realmuto from his team. He was replaced in the lineup by Gabriel Moreno. He picked up Ivan Hererra as bench catcher.
+
+- **4/3** - Isaac dropped injured Sean Murphy and Corbin Burnes. Kyle Bradish was moved from bench to starting Pitcher. Isaac picked up Alejandro Kirk (bench catcher) and Trevor Rogers (bench pitcher) as a free agents. Caleb dropped injured Blake Snell and Carlos Rodon. He picked up free agents Andrew Painter (staring pitcher) and Framber Valdez (bench pitcher)
+
+## Injury News
+
+[Check this site](https://www.espn.com/mlb/injuries) for official MLB injury information.
+
+```{r injuries, echo = FALSE}
+datatable(injured_on_list, 
+          options = list(pageLength = 12),
+          escape = FALSE)
+
+```
+
+
+# Player Statistics {.tabset}
+
+Sort through team and player statistics. Type your team's name in the search bar to look at only your team OR search for an individual player by name. This table only contains players drafted in the Melville Rotisserie league.
+
+You can click on a statistic to sort the players from highest-to-lowest or lowest-to-highest.
+
+New feature - click the tab to choose batter or pitcher stats.
+
+## Batters
+
+
+```{r echo=FALSE}
+# Roster display - Batters
+datatable(batter_roster %>%
+            filter(batter_pitcher == "Batter") %>%
+            select(bref_link, Position, Owner, 
+                   Team, G, AB, H, BB, HR, RBI, SB, BA, 
+                  OPS) %>%
+            rename(Name = bref_link,
+                   Pos = Position), 
+          options = list(pageLength = 12),
+          escape = FALSE)
+
+```
+
+
+## Pitchers
+
+```{r echo=FALSE}
+datatable(pitcher_roster %>%
+            select(bref_link, Position, Owner, Team,
+                   G, W, L, IP, H, BB, ER, SO, ERA, WHIP) %>%
+            rename(Name = bref_link,
+                   Pos = Position), 
+          options = list(pageLength = 5),
+          escape = FALSE)
+
+```
+# Request A Roster Move
+
+If you have a player *on IR* that you want to drop or bench, you can now directly send the Commissioner a roster move request. 
+
+You can:
+
+- a) Move an injured starter to your bench, and replace them with your bench player at that position. 
+
+- b) Drop an injured starter, replace them with a bench player, and sign a free agent bench player for the same position. 
+
+- c) Drop an injured bench player and sign a free agent bench player for the same position.
+
+You *cannot* sign a free agent directly to the starting roster.
+
+To find a free agent player, search the listings in the next section.
+
+<p>Use the link below to request a roster move.</p>
+<p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScnzs8V5oUbaddb4Spe6KegZfdX9I3g_5r7iv3dW-uMXoiFjg/viewform"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="display:inline-block; padding:12px 20px; background:#2c7fb8; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">
+    Open the roster move form
+  </a>
+</p>
+
+# Free Agents {.tabset}
+
+Look through these listings of free agents to see if there's anybody you want to sign. Batters are ranked by OPS, pitchers by WHIP. *(New - 5/27) Pitchers who have started fewer than 5 games, and batters who have appeared in fewer than 20 games are not included in Free Agent listings.*
+
+## Batters
+
+```{r echo=FALSE}
+# Roster display - Batters
+datatable(available_batters %>%
+            select(bref_link, 
+                   Team, position_name, G, AB, H, BB, HR, 
+                   RBI, SB, BA, 
+                  OPS) %>%
+            filter(G > 20) %>%
+            rename(Name = bref_link,
+                   Pos = position_name) %>%
+            arrange(-OPS), 
+          options = list(pageLength = 10),
+          escape = FALSE)
+
+```
+
+## Pitchers
+
+```{r echo=FALSE}
+datatable(available_pitchers %>%
+            select(bref_link, Team,
+                   GS, W, L, IP, H, BB, ER, SO, ERA, WHIP) %>%
+            rename(Name = bref_link) %>%
+            filter(GS > 5) %>%
+            arrange(WHIP), 
+          options = list(pageLength = 10),
+          escape = FALSE)
+
+```
+
+# League Rules and Stats {.tabset}
+
+## League Rules
+
+- Teams accumulate stats from the start of the season until the All-Star Break. At that point we crown a winner!
+
+- League standings, player stats and league news will be on the league website - [melvillebaseball.com](http://melvillebaseball.com) - updated a couple times per week.
+
+- Collect stats for nine categories. For batters - Batting Average, Home Runs, Stolen Bases, OPS, and RBIs. For pitchers - Innings Pitched, Strikeouts, ERA and WHIP. Learn more about the stats in the "Statistics Guide" section at the bottom of the page.
+
+- You get points based on your rank in each statistical category. If you are in first place in batting average - you get 5 points. If you are in second place - 3 points. Third place - 2 point. Fourth place - 1 point. Fifth place - you get bupkis.
+
+- The team with the most points at the end of our season wins!
+
+- Your lineup consists of:
+
+    - 8 starting position players
+    - 1 Util/DH player
+    - 4 pitchers (starting pitchers only)
+    - 4 bench players (one each - C, IF, OF, P)
+
+
+- There are no trades and you cannot add or drop players. The only exception: if a player on your team is officially placed on injured reserve (IR) by their MLB team.
+
+- If a player is placed on IR: 
+
+    - You may drop that player from your roster, and your bench player can be substituted (as OF, IF, C, or P). The bench player's stats for the whole period will be used, and the injured player's stats will be lost to your team. You can replace your empty bench spot with an unsigned player from MLB.
+
+    - You do not have to replace the injured player if you don't want! Let's say Player X had a great season, and gets injured a week before the end of the season - if you think it's worth missing a week's worth of production and keeping him on your roster, you certainly can!
+
+    - You can also move a player from your Util/DH spot if the position fits. Let's say my SS gets hurt, and my Util/DH player is a regular SS - I can drop my injured SS, move my DH to SS, and then fill my DH slot from the bench.
+
+- Signing free agents to fill your empty roster spot: 
+
+    - If you decide to drop an IR player and substitute a bench player, you will have an empty spot on your team. Use the league website to go to (baseballreference.com)[http://baseballreference.com] and look up a new player you'd like to sign, and communicate to High Honorable Commissioner Coach Michael that you'd like to add that player to your roster. (Ask your parents to text the Commissioner your roster move, or tell Isaac to tell him!)
+
+## Statistics Guide
+
+How do we calculate the statistics we are using in the league?
+
+### Batting Stats
+
+-BA (Batting Average): Total Team Hits / Total Team At Bats
+
+-HR: Total team home runs
+
+-RBI: Total team runs batted in
+
+-SB: Total team stolen bases
+
+-OPS (On base pct plus slugging pct): (Hits + Walks / Plate Appearances) + (Total Bases / At bats)
+
+### Pitching Stats
+
+-IP: Total team innings pitched
+
+-SO: Total team strikeouts
+
+-ERA (Earned Run Average): Total earned runs per 9 innings
+
+-WHIP: (Walks + Hits) / Innings Pitched

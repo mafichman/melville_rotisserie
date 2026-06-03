@@ -3,7 +3,7 @@
     "path": "~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R",
     "project_path": "R/clean_bbref_multi.R",
     "type": "r_source",
-    "hash": "2622514293",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1748117662026.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "19,26",
+        "cursorPosition": "161,0",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1773013161,
+    "lastKnownWriteTime": 1776715822,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1773013161220,
+    "last_content_update": 1776715822917,
     "read_only": false,
     "read_only_alternatives": []
 }
