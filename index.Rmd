@@ -34,11 +34,9 @@ source("R/fetch_IR_lists_v2.R")
 
 **[melvillebaseball.com](http://melvillebaseball.com)**
 
-**New site features:**
+**News:**
 
-- **Injury news is now directly on the site.**
-- **Submit requests to sign and drop players directly to the commissioner.**
-- **Search free agents directly on the site.**
+- **The site will update until the MLB All-Star Break on July 13th. After that, standings will be final!**
 
 _Last updated: `r render_time`_
 
