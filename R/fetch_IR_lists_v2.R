@@ -1,5 +1,7 @@
 # Scrape MLB injury list, semi_join with rosters and produce a table of injuries.
 
+cat("LOADED FETCH_IR_LISTS_V2.R\n")
+
 library(tidyverse)
 library(rvest)
 library(janitor)
