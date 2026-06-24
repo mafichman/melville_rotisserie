@@ -56,7 +56,7 @@ left_join(stats_batting, stats_pitching, by = c("Owner" = "Owner")) %>%
   arrange(-Points) %>%
   mutate(across(where(is.numeric), ~ bold_stat(., cur_column()))) %>%
   select(Owner, Points, everything()) %>%
-  kable(escape = FALSE) %>%
+  kable(format = "html", escape = FALSE) %>%
   kable_styling()
 
 ```
