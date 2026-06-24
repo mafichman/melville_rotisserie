@@ -19,6 +19,14 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v4
 
+      - name: Stop after July 13
+        run: |
+          TODAY=$(TZ=America/New_York date +%Y-%m-%d)
+          if [[ "$TODAY" > "2026-07-13" ]]; then
+            echo "Past July 13; skipping render."
+            exit 0
+          fi
+
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
 
