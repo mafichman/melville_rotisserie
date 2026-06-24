@@ -23,10 +23,8 @@ injured_on_list <- tryCatch({
     url = url,
     httr::user_agent("Mozilla/5.0"),
     times = 8,
-    pause_base = 20,
-    pause_cap = 180,
-    pause_min = 10,
-    terminate_on = c(200)
+    pause_base = 30,
+    pause_cap = 300
   )
   
   page <- read_html(httr::content(resp, as = "text", encoding = "UTF-8"))
