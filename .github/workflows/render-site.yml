@@ -1,0 +1,54 @@
+name: Render Melville Rotisserie Site
+
+on:
+  schedule:
+    # 10:00 AM Eastern = 14:00 UTC during daylight saving time
+    # Use 15:00 UTC during standard time if you need exact 10 AM EST.
+    - cron: "0 14 * * *"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Set up Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::rmarkdown
+            any::knitr
+            any::tidyverse
+            any::baseballr
+            any::lubridate
+            any::kableExtra
+            any::purrr
+            any::DT
+            any::rvest
+            any::janitor
+            any::stringi
+
+      - name: Render index.Rmd
+        run: |
+          Rscript -e "rmarkdown::render('index.Rmd', output_file = 'index.html')"
+
+      - name: Commit updated site
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "Daily site update"
+          git push
