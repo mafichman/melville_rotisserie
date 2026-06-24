@@ -4,6 +4,7 @@ library(tidyverse)
 library(rvest)
 library(janitor)
 library(stringi)
+library(httr)
 
 clean_player_name <- function(x) {
   x %>%
