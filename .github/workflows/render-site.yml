@@ -4,7 +4,7 @@ on:
   schedule:
     # 10:00 AM Eastern = 14:00 UTC during daylight saving time
     # Use 15:00 UTC during standard time if you need exact 10 AM EST.
-    - cron: "0 14 * * *"
+    - cron: "0 15 * * *"
 
   workflow_dispatch:
 
