@@ -20,16 +20,9 @@ library(DT)
 source("R/clean_bbref_multi.R")
 ```
 ```{r mlb_IR, include=FALSE}
-cat("Current working directory:\n")
-print(getwd())
 
-cat("Files in R folder:\n")
-print(list.files("R"))
-
-cat("Sourcing V2 script\n")
 source("R/fetch_IR_lists_v2.R")
 
-cat("Finished sourcing V2 script\n")
 ```
 
 ![](https://raw.githubusercontent.com/mafichman/Melville_Rotisserie/main/images/league_logo.png)
