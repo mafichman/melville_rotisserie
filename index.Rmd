@@ -17,10 +17,10 @@ library(DT)
 ```{r bbref, include=FALSE}
 # Run source code to pull data from bbref, clean rosters and stats - will run to present day by calling Sys.Date()
 # Initial date of league start needs to be hard coded
-source("~/GitHub/Melville_Rotisserie/R/clean_bbref_multi.R")
+source("R/clean_bbref_multi.R")
 ```
 ```{r mlb_IR, include=FALSE}
-source("~/GitHub/Melville_Rotisserie/R/fetch_IR_lists.R")
+source("R/fetch_IR_lists.R")
 ```
 
 ![](https://raw.githubusercontent.com/mafichman/Melville_Rotisserie/main/images/league_logo.png)
