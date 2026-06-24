@@ -18,12 +18,17 @@ injured_on_list <- tryCatch({
   
   url <- "https://www.espn.com/mlb/injuries"
   
-  page <- read_html(
-    httr::GET(
-      url,
-      httr::user_agent("Mozilla/5.0")
-    )
+  resp <- httr::RETRY(
+    verb = "GET",
+    url = url,
+    httr::user_agent("Mozilla/5.0"),
+    times = 5,
+    pause_base = 30,
+    pause_cap = 120,
+    terminate_on = c(200)
   )
+  
+  page <- read_html(httr::content(resp, as = "text", encoding = "UTF-8"))
   
   injured_table <- page %>%
     html_elements(".ResponsiveTable") %>%
