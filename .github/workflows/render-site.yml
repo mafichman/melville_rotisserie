@@ -40,6 +40,7 @@ jobs:
             any::rvest
             any::janitor
             any::stringi
+            any::httr
 
       - name: Render index.Rmd
         run: |
