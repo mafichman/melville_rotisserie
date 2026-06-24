@@ -20,7 +20,7 @@ library(DT)
 source("R/clean_bbref_multi.R")
 ```
 ```{r mlb_IR, include=FALSE}
-source("R/fetch_IR_lists.R")
+source("R/fetch_IR_lists_v2.R")
 ```
 
 ![](https://raw.githubusercontent.com/mafichman/Melville_Rotisserie/main/images/league_logo.png)
