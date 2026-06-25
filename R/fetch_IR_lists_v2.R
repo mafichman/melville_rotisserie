@@ -6,6 +6,13 @@ library(janitor)
 library(stringi)
 library(httr)
 
+# Cached injury file
+injury_cache_file <- "data/injured_on_list.rds"
+
+if (!dir.exists("data")) {
+  dir.create("data")
+}
+
 clean_player_name <- function(x) {
   x %>%
     str_to_lower() %>%
@@ -22,7 +29,7 @@ injured_on_list <- tryCatch({
     verb = "GET",
     url = url,
     httr::user_agent("Mozilla/5.0"),
-    times = 8,
+    times = 12,
     pause_base = 30,
     pause_cap = 300
   )
@@ -66,18 +73,37 @@ injured_on_list <- tryCatch({
     ) %>%
     arrange(Owner)
   
-}, error = function(e) {
-  
+}, 
+
+error = function(e) {
   message("Could not fetch ESPN injury table: ", e$message)
   
-  tibble(
-    Player = character(),
-    Owner = character(),
-    Team = character(),
-    Position = character(),
-    `Roster Position` = character(),
-    Status = character(),
-    `Estimated Return` = character(),
-    Details = character()
-  )
+  if (file.exists(injury_cache_file)) {
+    message("Using cached injury table: ", injury_cache_file)
+    readRDS(injury_cache_file)
+  } else {
+    message("No injury cache found. Returning empty injury table.")
+    
+    tibble(
+      Player = character(),
+      Owner = character(),
+      Team = character(),
+      Position = character(),
+      `Roster Position` = character(),
+      Status = character(),
+      `Estimated Return` = character(),
+      Details = character()
+    )
+  }
 })
+
+if (nrow(injured_on_list) > 0) {
+  saveRDS(
+  list(
+    timestamp = Sys.time(),
+    injuries = injured_on_list
+  ),
+  injury_cache_file
+)
+  message("Saved injury cache: ", injury_cache_file)
+}
