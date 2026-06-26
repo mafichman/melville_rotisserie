@@ -76,9 +76,9 @@ injured_on_list <- tryCatch({
 }, 
 
 error = function(e) {
-  
+
   message("Could not fetch ESPN injury table: ", e$message)
-  
+
   empty_injury_table <- tibble(
     Player = character(),
     Owner = character(),
@@ -89,21 +89,21 @@ error = function(e) {
     `Estimated Return` = character(),
     Details = character()
   )
-  
+
   if (file.exists(injury_cache_file)) {
     message("Using cached injury table: ", injury_cache_file)
-    
+
     cached_injuries <- readRDS(injury_cache_file)
-    
+
     if (is.data.frame(cached_injuries)) {
       cached_injuries
     } else {
       message("Cached injury table was not a data frame. Returning empty injury table.")
       empty_injury_table
     }
-    
+
   } else {
     message("No injury cache found. Returning empty injury table.")
     empty_injury_table
   }
-}
+})
