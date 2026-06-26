@@ -76,6 +76,7 @@ injured_on_list <- tryCatch({
 }, 
 
 error = function(e) {
+  
   message("Could not fetch ESPN injury table: ", e$message)
   
   if (file.exists(injury_cache_file)) {
@@ -97,13 +98,14 @@ error = function(e) {
   }
 })
 
-if (nrow(injured_on_list) > 0) {
-  saveRDS(
-  list(
-    timestamp = Sys.time(),
-    injuries = injured_on_list
-  ),
-  injury_cache_file
-)
+# safe cache save goes here, AFTER the tryCatch
+if (
+  exists("injured_on_list") &&
+  is.data.frame(injured_on_list) &&
+  nrow(injured_on_list) > 0
+) {
+  saveRDS(injured_on_list, injury_cache_file)
   message("Saved injury cache: ", injury_cache_file)
+} else {
+  message("No non-empty injury table to cache.")
 }
