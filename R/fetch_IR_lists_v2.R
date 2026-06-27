@@ -107,3 +107,14 @@ error = function(e) {
     empty_injury_table
   }
 })
+
+# Save fresh injury table to cache
+if (
+  is.data.frame(injured_on_list) &&
+  nrow(injured_on_list) > 0
+) {
+  saveRDS(injured_on_list, injury_cache_file)
+  message("Saved injury cache: ", injury_cache_file)
+} else {
+  message("No non-empty injury table to cache.")
+}

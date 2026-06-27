@@ -42,8 +42,6 @@ _Last updated: `r render_time`_
 
 # Standings
 
-*Data are current to the date indicated at the top of the page*
-
 Bold-face numbers indicate the leader in each statistical category. 
 
 ```{r standings, echo = FALSE}
@@ -66,23 +64,23 @@ IR reports are now directly accessible here from ESPN news reports.
 
 ## Transactions
 
-- **6/22** - Caleb dropped Mike Trout, moved JJ Bleday to the OF, and signed Bryce Eldridge as Bench OF.
+- **6/22** - *Caleb* dropped *Mike Trout*, moved *JJ Bleday* from Bench to the OF, and signed *Bryce Eldridge* as Bench OF.
 
-- **5/28** - Caleb dropped Mickey Moniak (OF-Bench) and replaced him with free agent JJ Bleday.
+- **5/28** - *Caleb* dropped *Mickey Moniak* (OF-Bench) and replaced him with free agent JJ Bleday.
 
-- **5/26** - Caleb requested to drop Mickey Moniak in favor of Wade Meckler - the commissioner denied this request because Meckler has only played 3 games this year. His season totals would be too low to help Caleb's team. The commissioner requests he choose another player.
+- **5/26** - *Caleb* requested to drop *Mickey Moniak* in favor of *Wade Meckler* - the commissioner denied this request because Meckler has only played 3 games this year. His season totals would be too low to help Caleb's team. The commissioner requests he choose another player.
 
-- **5/12** - Caleb dropped Kerry Carpenter (OF), and replaced him with Brandon Marsh from the bench. He picked up Mickey Moniak (OF-Bench)
+- **5/12** - *Caleb* dropped *Kerry Carpenter* (OF), and replaced him with *Brandon Marsh* from the bench. He picked up *Mickey Moniak* (OF-Bench)
 
-- **5/8** - Isaac dropped Giancarlo Stanton (OF-Bench) and replaced him with Yordan Alvarez. He dropped Roman Anthony (OF) and moved Oneill Cruz from Util/DH to OF in the lineup. He moved Yordan Alvarez from OF-Bench to Util/DH. He picked up Jordan Walker (OF-Bench).
+- **5/8** - *Isaac* dropped *Giancarlo Stanton* (OF-Bench) and replaced him with *Yordan Alvarez*. He dropped *Roman Anthony* (OF) and moved *Oneill Cruz* from Util/DH to OF in the lineup. He moved *Yordan Alvarez* from OF-Bench to Util/DH. He picked up *Jordan Walker* (OF-Bench).
 
-- **5/7** - Caleb dropped Ronald Acuna (OF). He was by Kerry Carpenter on the bench. He picked up Brandon Marsh (OF-Bench).
+- **5/7** - Caleb dropped *Ronald Acun*a (OF). He was replaced by *Kerry Carpenter* on the bench. He picked up *Brandon Marsh* (OF-Bench).
 
-- **5/2** - Isaac dropped Mookie Betts (IF-Bench) and replaced him with Ozzie Albies. He dropped Francisco Lindor and replaced him in the lineup with Albies. He dropped Alejandro Kirk and replaced him with Liam Hicks (C-Bench). He picked up Munetaka Murakami (IF-Bench).
+- **5/2** - *Isaac* dropped *Mookie Bett*s (IF-Bench) and replaced him with *Ozzie Albies*. He dropped *Francisco Lindor* and replaced him in the lineup with Albies. He dropped *Alejandro Kirk* and replaced him with *Liam Hicks* (C-Bench). He picked up *Munetaka Murakami* (IF-Bench).
 
-- **4/28** - Caleb dropped JT Realmuto from his team. He was replaced in the lineup by Gabriel Moreno. He picked up Ivan Hererra as bench catcher.
+- **4/28** - *Caleb* dropped *JT Realmut*o from his team. He was replaced in the lineup by *Gabriel Moreno*. He picked up *Ivan Hererra* as bench catcher.
 
-- **4/3** - Isaac dropped injured Sean Murphy and Corbin Burnes. Kyle Bradish was moved from bench to starting Pitcher. Isaac picked up Alejandro Kirk (bench catcher) and Trevor Rogers (bench pitcher) as a free agents. Caleb dropped injured Blake Snell and Carlos Rodon. He picked up free agents Andrew Painter (staring pitcher) and Framber Valdez (bench pitcher)
+- **4/3** - *Isaac* dropped injured *Sean Murphy* and *Corbin Burnes*. *Kyle Bradish* was moved from bench to starting Pitcher. *Isaac* picked up *Alejandro Kirk* (bench catcher) and *Trevor Rogers* (bench pitcher) as a free agents. *Caleb* dropped injured *Blake Snell* and *Carlos Rodon*. He picked up free agents *Andrew Painter* (staring pitcher) and *Framber Valdez* (bench pitcher)
 
 ## Injury News
 
@@ -90,7 +88,7 @@ IR reports are now directly accessible here from ESPN news reports.
 
 ```{r injuries, echo = FALSE}
 datatable(injured_on_list, 
-          options = list(pageLength = 12),
+          options = list(pageLength = 5),
           escape = FALSE)
 
 ```
@@ -162,7 +160,9 @@ To find a free agent player, search the listings in the next section.
 
 # Free Agents {.tabset}
 
-Look through these listings of free agents to see if there's anybody you want to sign. Batters are ranked by OPS, pitchers by WHIP. *(New - 5/27) Pitchers who have started fewer than 5 games, and batters who have appeared in fewer than 20 games are not included in Free Agent listings.*
+Look through these listings of free agents to see if there's anybody you want to sign. Batters are ranked by OPS, pitchers by WHIP. 
+
+*Pitchers who have started fewer than 10 games, and batters who have appeared in fewer than 40 games are not included in Free Agent listings.*
 
 ## Batters
 
@@ -202,7 +202,7 @@ datatable(available_pitchers %>%
 
 - Teams accumulate stats from the start of the season until the All-Star Break. At that point we crown a winner!
 
-- League standings, player stats and league news will be on the league website - [melvillebaseball.com](http://melvillebaseball.com) - updated a couple times per week.
+- League standings, player stats and league news will be on the league website - [melvillebaseball.com](http://melvillebaseball.com) - updated daily.
 
 - Collect stats for nine categories. For batters - Batting Average, Home Runs, Stolen Bases, OPS, and RBIs. For pitchers - Innings Pitched, Strikeouts, ERA and WHIP. Learn more about the stats in the "Statistics Guide" section at the bottom of the page.
 
