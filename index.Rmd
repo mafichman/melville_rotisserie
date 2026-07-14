@@ -36,7 +36,7 @@ source("R/fetch_IR_lists_v2.R")
 
 **News:**
 
-- **The site will update until the MLB All-Star Break on July 13th. After that, standings will be final!**
+- **The season is over! Congrats to our co-champions Caleb and Lev!**
 
 _Last updated: `r render_time`_
 
